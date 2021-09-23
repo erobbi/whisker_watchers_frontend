@@ -9,7 +9,7 @@ function Logout({setUser}) {
     })
 }
 
-    return (<button onClick={handleLogoutClick}>Log Out</button>)
+    return (<button onClick={handleLogoutClick}>Logout</button>)
 }
 
 export default Logout
