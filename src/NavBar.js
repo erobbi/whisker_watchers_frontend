@@ -6,7 +6,7 @@ export default function NavBar() {
       <div>
         <ul>
           <NavLink exact to="/" className="navItem">
-            <li class="active">
+            <li>
               <a>Home</a>
             </li>
           </NavLink>
@@ -20,13 +20,18 @@ export default function NavBar() {
               <a>Dog Calculator</a>
             </li>
           </NavLink>
+          <NavLink className="navItemRight" exact to="signup">
+            <li>
+              <a>Signup</a>
+            </li>
+          </NavLink>
           <NavLink className="navItemRight" exact to="login">
             <li>
               <a>Login</a>
             </li>
           </NavLink>
           <NavLink className="navItemRight" exact to="user">
-            <li class="active">
+            <li>
               <a>User</a>
             </li>
           </NavLink>

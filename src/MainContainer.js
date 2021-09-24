@@ -4,6 +4,7 @@ import Logout from "./Logout";
 import { Route, Switch } from 'react-router-dom';
 import CatCalculator from './CatCalculator';
 import DogCalculator from './DogCalculator';
+import Signup from './Signup';
 
 export default function MainContainer({setUser}) {
     return (
@@ -20,6 +21,9 @@ export default function MainContainer({setUser}) {
           </Route>
           <Route exact path="/dog_calculator">
             <DogCalculator />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
           </Route>
         </Switch>
       </div>
