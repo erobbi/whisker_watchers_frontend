@@ -39,17 +39,54 @@ export default function Signup({ setUser }) {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                placeholder="name" 
-                id="name" 
-                value={name} 
-                onChange={(e) => setName(e.target.value)} 
-            />
-            <button type="submit">
-                Sign Up
-            </button>
-        </form>
-    )
+      <form onSubmit={handleSubmit}>
+        <br />
+        <input
+          type="text"
+          placeholder="name"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="username"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="avatar_url"
+          id="avatar_url"
+          value={avatar_url}
+          onChange={(e) => setAvatar_url(e.target.value)}
+        />
+        <br />
+        <br />
+        <input
+          type="password"
+          placeholder="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <br />
+        <input
+          type="password"
+          placeholder="confirm password"
+          id="password_confirmation"
+          value={password_confirmation}
+          onChange={(e) => setPassword_confirmation(e.target.value)}
+        />
+        <br />
+        <br />
+        <button type="submit">Sign Up</button>
+      </form>
+    );
 }

@@ -23,7 +23,7 @@ export default function MainContainer({setUser}) {
             <DogCalculator />
           </Route>
           <Route exact path="/signup">
-            <Signup />
+            <Signup setUser={setUser}/>
           </Route>
         </Switch>
       </div>
