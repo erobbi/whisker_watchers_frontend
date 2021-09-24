@@ -18,8 +18,8 @@ function App() {
 
   return (
     <div className="App">
-      <TopBar />
-      <MainContainer setUser={setUser}/>
+      <TopBar setUser={setUser} />
+      <MainContainer setUser={setUser} />
     </div>
   );
 }

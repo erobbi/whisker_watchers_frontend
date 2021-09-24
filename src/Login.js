@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 
 function Login({ user, setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory();
 
   function handleSubmit(e) {
       console.log("triggered")
@@ -18,6 +20,7 @@ function Login({ user, setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then(setUser);
+        history.push("/welcome");     
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -46,6 +49,13 @@ function Login({ user, setUser }) {
       <Button type="submit" variant="contained">
         Login
       </Button>
+      {errors
+        ? errors.map((err) => (
+            <h3 style={{ color: "red" }} key={err}>
+              {err}
+            </h3>
+          ))
+        : null}
     </form>
   );
 }
