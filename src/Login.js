@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from "@mui/material/Button";
 
 function Login({ user, setUser }) {
   const [username, setUsername] = useState("");
@@ -41,7 +42,10 @@ function Login({ user, setUser }) {
         onChange={(e) => setPassword(e.target.value)}
       />
       <br />
-      <button type="submit" className="ui button">Login</button>
+      <br />
+      <Button type="submit" variant="contained">
+        Login
+      </Button>
     </form>
   );
 }

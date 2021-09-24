@@ -1,8 +1,7 @@
 import "./App.css";
-import Login from "./Login";
-import Logout from "./Logout"
+import MainContainer from "./MainContainer";
+import TopBar from "./TopBar";
 import { useState, useEffect } from "react";
-import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react";
 
 function App() {
   const [user, setUser] = useState({});
@@ -19,8 +18,8 @@ function App() {
 
   return (
     <div className="App">
-      <Login setUser={setUser}/>
-      <Logout setUser={setUser}/>
+      <TopBar />
+      <MainContainer setUser={setUser}/>
     </div>
   );
 }

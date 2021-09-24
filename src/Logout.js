@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from "@mui/material/Button";
 
 function Logout({setUser}) {
     function handleLogoutClick() {
@@ -9,7 +10,9 @@ function Logout({setUser}) {
     })
 }
 
-    return (<button onClick={handleLogoutClick}>Logout</button>)
+    return (
+    <Button variant="contained" onClick={handleLogoutClick}>Logout</Button>
+    )
 }
 
 export default Logout
