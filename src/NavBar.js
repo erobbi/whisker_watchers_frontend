@@ -1,11 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function NavBar({ setUser }) {
+export default function NavBar({ setLoggedIn, setUser }) {
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser({});
+        setLoggedIn(false);
       }
     });
   }
