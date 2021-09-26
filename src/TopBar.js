@@ -11,6 +11,7 @@ export default function TopBar({ loggedIn, setLoggedIn, user, setUser }) {
       ) : (
         <div>Welcome to Whisker Watchers</div>
       )}
+      <br/>
     </>
   );
 }
