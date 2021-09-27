@@ -81,6 +81,11 @@ li a:hover {
 
 /* style for slider */
 .slider {
-  padding-left: 250px;
-  padding-right: 250px;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+
+img {
+  width: 380px;
 }
