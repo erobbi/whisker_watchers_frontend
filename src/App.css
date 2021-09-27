@@ -78,3 +78,9 @@ li a:hover {
   background-color: #04AA6D;
 }
 /* end style for navbar */
+
+/* style for slider */
+.slider {
+  padding-left: 250px;
+  padding-right: 250px;
+}

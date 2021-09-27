@@ -7,7 +7,6 @@ function App() {
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false)
 
-  console.log({user})
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
