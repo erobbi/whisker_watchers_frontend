@@ -140,7 +140,7 @@ export default function CatCalculator() {
         <div>Result:</div>
         <div>{calculatedValues[0].message}</div>
         <div>Suggestion:</div>
-        <div>Reduce your cats daily intake to {calculatedValues[0].suggestedCalories}</div>
+        <div>{calculatedValues[0].messageCalories}</div>
       </div> )
       : null}
     </div>
