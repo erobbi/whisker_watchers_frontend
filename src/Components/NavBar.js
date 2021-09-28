@@ -19,6 +19,11 @@ export default function NavBar({ setLoggedIn, setUser }) {
               <a>Home</a>
             </li>
           </NavLink>
+          <NavLink exact to="weight_tracker">
+            <li className="navItem">
+              <a>Weight Log</a>
+            </li>
+          </NavLink>
           <NavLink exact to="cat_calculator">
             <li className="navItem">
               <a>Cat Calculator</a>

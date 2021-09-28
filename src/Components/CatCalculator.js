@@ -137,9 +137,11 @@ export default function CatCalculator() {
 
       {Object.keys(calculatedValues).length > 0 ? (
       <div>
+        <br/>
         <div>Result:</div>
+        <br/>
         <div>{calculatedValues[0].message}</div>
-        <div>Suggestion:</div>
+        <br/>
         <div>{calculatedValues[0].messageCalories}</div>
       </div> )
       : null}
