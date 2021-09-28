@@ -29,7 +29,7 @@ export default function Signup({ setUser }) {
           if (r.ok) {
             r.json().then((user) => {
               setUser(user);
-              history.push("/feed");
+              // history.push("/feed");
             });
           } else {
             r.json().then((err) => setErrors(err.errors));

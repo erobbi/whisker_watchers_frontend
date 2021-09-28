@@ -6,6 +6,7 @@ import CatCalculator from './CatCalculator';
 import DogCalculator from './DogCalculator';
 import Signup from './Signup';
 import WeightTracker from './WeightTracker';
+import NewPetForm from './NewPetForm';
 
 export default function MainContainer({setUser}) {
     return (
@@ -28,6 +29,9 @@ export default function MainContainer({setUser}) {
           </Route>
           <Route exact path="/signup">
             <Signup setUser={setUser}/>
+          </Route>
+          <Route exact path="/new_pet">
+            <NewPetForm />
           </Route>
         </Switch>
       </div>
