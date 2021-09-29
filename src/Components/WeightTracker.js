@@ -1,8 +1,8 @@
-import WeightRender from './WeightRender'
+import WeightRender from "./WeightRender";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function WeightTracker() {
+export default function WeightTracker({ user }) {
   const [cats, setCats] = useState({});
   const [catsFetched, setCatsFetched] = useState(false);
   const [weightEntry, setWeightEntry] = useState("");
@@ -11,6 +11,7 @@ export default function WeightTracker() {
   const [viewCatId, setViewCatId] = useState("");
   const [errors, setErrors] = useState([]);
 
+  console.log(user.cats);
   useEffect(() => {
     fetch("/cats").then((res) => {
       if (res.ok) {
@@ -24,15 +25,14 @@ export default function WeightTracker() {
 
   function handleCatClick(e) {
     e.preventDefault();
-    if (viewWeightRender==false) {
-        setViewCatId(e.target.id);
-        setViewWeightRender(true);
+    if (viewWeightRender == false) {
+      setViewCatId(e.target.id);
+      setViewWeightRender(true);
     } else {
-        setViewCatId("");
-        setViewWeightRender(false);
+      setViewCatId("");
+      setViewWeightRender(false);
     }
-    
-}
+  }
 
   function handleWeightSubmit(e) {
     e.preventDefault();
@@ -103,31 +103,46 @@ export default function WeightTracker() {
       {catsFetched ? (
         <>
           <div>Your Pets:</div>
-          {cats.map((cat) => {
-            return (
-              <>
-                <div id={cat.id}>
-                  {cat.name} Age: {cat.age}
-                </div>
-                <button id={cat.id} onClick={handleCatClick}>
-                  View
-                </button>
-                <button id={cat.id} onClick={() => handleDeleteClick(cat.id)}>
-                  Delete
-                </button>
-                <br />
-                <br />
-              </>
-            );
-          })}
-          <WeightForm />
+          {Object.keys(user.cats).length > 0 ? (
+            <>
+              {user.cats.map((cat) => {
+                return (
+                  <>
+                    <div id={cat.id}>
+                      {cat.name} Age: {cat.age}
+                    </div>
+                    <button id={cat.id} onClick={handleCatClick}>
+                      View
+                    </button>
+                    <button
+                      id={cat.id}
+                      onClick={() => handleDeleteClick(cat.id)}
+                    >
+                      Delete
+                    </button>
+                    <br />
+                    <br />
+                  </>
+                );
+              })}
+              <WeightForm />
+            </>
+          ) : (
+            <div>You have not added any cats.</div>
+          )}
         </>
       ) : (
         <div>You have not entered any pets.</div>
       )}
       <br />
       <br />
-      {viewWeightRender ? <WeightRender cat_id={viewCatId} viewWeightRender={viewWeightRender} setViewWeightRender={setViewWeightRender} /> : null}
+      {viewWeightRender ? (
+        <WeightRender
+          cat_id={viewCatId}
+          viewWeightRender={viewWeightRender}
+          setViewWeightRender={setViewWeightRender}
+        />
+      ) : null}
       <br />
       <br />
 
