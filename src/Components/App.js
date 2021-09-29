@@ -20,8 +20,18 @@ function App() {
 
   return (
     <div className="App">
-      <TopBar loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} />
-      <MainContainer user={user} setUser={setUser} />
+      <TopBar
+        loggedIn={loggedIn}
+        setLoggedIn={setLoggedIn}
+        user={user}
+        setUser={setUser}
+      />
+      <MainContainer
+        loggedIn={loggedIn}
+        setLoggedIn={setLoggedIn}
+        user={user}
+        setUser={setUser}
+      />
     </div>
   );
 }

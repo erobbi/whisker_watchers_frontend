@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 
-export default function Login({ user, setUser }) {
+export default function Login({ setUser, setLoggedIn }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -20,6 +20,7 @@ export default function Login({ user, setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then(setUser);
+        setLoggedIn(true)
         history.push("/weight_tracker");     
       } else {
         r.json().then((err) => setErrors(err.errors));
