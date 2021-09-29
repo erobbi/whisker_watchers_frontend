@@ -2,6 +2,6 @@
 
 Whisker Watchers React App
 
-Associated with Rails API at: /erobbi/whisker_watchers_api
+Associated with Rails API at: https://github.com/erobbi/whisker_watchers_api
 
-Authors: Eli Robbins
+Author: Eli Robbins
