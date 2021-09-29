@@ -1,6 +1,5 @@
 import React from 'react'
 import Login from "./Login";
-import Logout from "./Logout";
 import { Route, Switch } from 'react-router-dom';
 import CatCalculator from './CatCalculator';
 import DogCalculator from './DogCalculator';
@@ -14,10 +13,7 @@ export default function MainContainer({user, setUser}) {
       <div>
         <Switch>
           <Route exact path="/login">
-            <br />
             <Login setUser={setUser} />
-            <br />
-            <Logout setUser={setUser} />
           </Route>
           <Route exact path="/weight_tracker">
             <WeightTracker user={user}/>
