@@ -1,3 +1,4 @@
+import WeightRender from './WeightRender'
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -5,9 +6,10 @@ export default function WeightTracker() {
   const [cats, setCats] = useState({});
   const [catsFetched, setCatsFetched] = useState(false);
   const [weightEntry, setWeightEntry] = useState("");
-  const [showWeightUpdater, setShowWeightUpdater] = useState(false);
   const [selectedCatId, setSelectedCatId] = useState("");
-  const [errors, setErrors] = useState([])
+  const [viewWeightRender, setViewWeightRender] = useState(false);
+  const [viewCatId, setViewCatId] = useState("");
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     fetch("/cats").then((res) => {
@@ -22,45 +24,46 @@ export default function WeightTracker() {
 
   function handleCatClick(e) {
     e.preventDefault();
-    console.log(e.target.id);
-  }
-
-  function handleAddWeight(e) {
-    e.preventDefault();
-    console.log(e.target.id);
-  }
+    if (viewWeightRender==false) {
+        setViewCatId(e.target.id);
+        setViewWeightRender(true);
+    } else {
+        setViewCatId("");
+        setViewWeightRender(false);
+    }
+    
+}
 
   function handleWeightSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     fetch("/weights/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            weight: weightEntry,
-            cat_id: selectedCatId,
-        }),
-    })
-    .then(res => {
-        if (res.ok) {
-            res.json().then((data) => {
-                setSelectedCatId(0)
-                setWeightEntry("")
-            })
-        } else {
-            res.json().then((err) => setErrors(err.errors))
-        }
-    })
-}
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        weight: weightEntry,
+        cat_id: selectedCatId,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          setSelectedCatId(0);
+          setWeightEntry("");
+        });
+      } else {
+        res.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
 
-function handleDeleteClick(id){
+  function handleDeleteClick(id) {
     fetch(`/cats/${id}`, {
-        method: 'DELETE'
-    })
-    const remainingCats = [...cats].filter(cat => cat.id != id)
-    setCats(remainingCats)
-}
+      method: "DELETE",
+    });
+    const remainingCats = [...cats].filter((cat) => cat.id != id);
+    setCats(remainingCats);
+  }
 
   function WeightForm() {
     return (
@@ -103,25 +106,28 @@ function handleDeleteClick(id){
           {cats.map((cat) => {
             return (
               <>
-                <Link
-                  to={`/cats/${cat.id}`}
-                  id={cat.id}
-                  onClick={handleCatClick}
-                >
+                <div id={cat.id}>
                   {cat.name} Age: {cat.age}
-                </Link>
-                <button id={cat.id} onClick={() => handleDeleteClick(cat.id)}>Delete</button>
+                </div>
+                <button id={cat.id} onClick={handleCatClick}>
+                  View
+                </button>
+                <button id={cat.id} onClick={() => handleDeleteClick(cat.id)}>
+                  Delete
+                </button>
+                <br />
                 <br />
               </>
             );
           })}
+          <WeightForm />
         </>
       ) : (
         <div>You have not entered any pets.</div>
       )}
       <br />
       <br />
-      {catsFetched ? <WeightForm /> : null}
+      {viewWeightRender ? <WeightRender cat_id={viewCatId} viewWeightRender={viewWeightRender} setViewWeightRender={setViewWeightRender} /> : null}
       <br />
       <br />
 
