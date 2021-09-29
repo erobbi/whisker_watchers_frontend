@@ -115,7 +115,6 @@ export default function CatCalculator() {
             marks={BCSMarks}
             style={{ width: "100%" }}
           />
-          {/* <Range /> */}
         </div>
         <br />
         <br />
