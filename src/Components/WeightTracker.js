@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function WeightTracker({user}) {
+export default function WeightTracker() {
   const [cats, setCats] = useState({});
   const [catsFetched, setCatsFetched] = useState(false);
   const [weightEntry, setWeightEntry] = useState("");
@@ -43,7 +43,7 @@ export default function WeightTracker({user}) {
         }),
     })
     .then(res => {
-        if (res.created) {
+        if (res.ok) {
             res.json().then((data) => {
                 setSelectedCatId(0)
                 setWeightEntry("")
@@ -52,6 +52,14 @@ export default function WeightTracker({user}) {
             res.json().then((err) => setErrors(err.errors))
         }
     })
+}
+
+function handleDeleteClick(id){
+    fetch(`/cats/${id}`, {
+        method: 'DELETE'
+    })
+    const remainingCats = [...cats].filter(cat => cat.id != id)
+    setCats(remainingCats)
 }
 
   function WeightForm() {
@@ -66,9 +74,7 @@ export default function WeightTracker({user}) {
         />
         <select
           value={selectedCatId}
-          onChange={(e) => {
-              setSelectedCatId(e.target.value)
-            console.log(e.target.value)}}
+          onChange={(e) => setSelectedCatId(e.target.value)}
         >
           <option key={0} value={0}>
             Select Cat
@@ -104,6 +110,7 @@ export default function WeightTracker({user}) {
                 >
                   {cat.name} Age: {cat.age}
                 </Link>
+                <button id={cat.id} onClick={() => handleDeleteClick(cat.id)}>Delete</button>
                 <br />
               </>
             );
