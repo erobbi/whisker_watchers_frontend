@@ -108,6 +108,7 @@ export default function WeightTracker({ user }) {
               {user.cats.map((cat) => {
                 return (
                   <>
+                    <img id={cat.id} className="catAvatar" src={cat.cat_url} />
                     <div id={cat.id}>
                       {cat.name} Age: {cat.age}
                     </div>

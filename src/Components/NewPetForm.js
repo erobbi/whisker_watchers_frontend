@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 export default function NewPetForm() {
     const [name, setName] = useState("");
     const [age, setAge] = useState(""); 
+    const [cat_url, setCat_url] = useState("");
+    const [food_per_day, setFood_per_day] = useState("");
     const ages = Array.from(Array(31).keys())
     ages.shift()
     const [errors, setErrors] = useState([]);
@@ -20,6 +22,8 @@ export default function NewPetForm() {
             body: JSON.stringify({
                 name,
                 age,
+                cat_url,
+                food_per_day,
             }),
         })
         .then((r) => {
@@ -37,24 +41,48 @@ export default function NewPetForm() {
       <div>
         <div>New Pet Form</div>
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="pet name"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-            <br/>
-            <br/>
-            <select value={age} onChange={e => setAge(e.target.value)}>
-                <option key={0} value ={"Age"}>Age</option>
-                {ages.map((age) => {
-                    return <option key={age} value={age}>{age}</option>
-                })}
-            </select>
-                <br/>
-                <br/>
-                <button type="submit">Add Pet</button>
+          <input
+            type="text"
+            placeholder="pet name"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <br />
+          <br />
+          <select value={age} onChange={(e) => setAge(e.target.value)}>
+            <option key={0} value={"Age"}>
+              Age
+            </option>
+            {ages.map((age) => {
+              return (
+                <option key={age} value={age}>
+                  {age}
+                </option>
+              );
+            })}
+          </select>
+          <br />
+          <br />
+          <input
+            type="text"
+            placeholder="Cat image URL"
+            id="cat_url"
+            value={cat_url}
+            onChange={(e) => setCat_url(e.target.value)}
+          />
+          <br />
+          <br />
+          <input
+            type="text"
+            placeholder="food per day (in cups)"
+            id="food_per_day"
+            value={food_per_day}
+            onChange={(e) => setFood_per_day(e.target.value)}
+          />
+          <br />
+          <br />
+          <button type="submit">Add Pet</button>
         </form>
       </div>
     );
