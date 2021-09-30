@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 export default function WeightRender({ cat_id, viewWeightRender, setViewWeightRender }) {
-  console.log(cat_id);
   const [cat, setCat] = useState({});
   const [catFetched, setCatFetched] = useState(false);
   useEffect(() => {
@@ -10,7 +9,6 @@ export default function WeightRender({ cat_id, viewWeightRender, setViewWeightRe
         res.json().then((data) => {
           setCat(data);
           setCatFetched(true);
-          console.log({cat})
         });
       }
     });

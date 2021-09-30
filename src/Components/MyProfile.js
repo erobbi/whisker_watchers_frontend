@@ -9,7 +9,6 @@ export default function MyProfile({ user, setUser }) {
     const [name, setName] = useState(user.name);
     function handleSubmit(e) {
       e.preventDefault();
-      console.log(user);
       fetch(`users/1`, {
         method: "PATCH",
         headers: {
@@ -42,7 +41,6 @@ export default function MyProfile({ user, setUser }) {
     const [username, setUsername] = useState(user.username);
     function handleSubmit(e) {
       e.preventDefault();
-      console.log(user);
       fetch(`users/1`, {
         method: "PATCH",
         headers: {
@@ -75,7 +73,6 @@ export default function MyProfile({ user, setUser }) {
     const [avatar_url, setAvatar_url] = useState(user.avatar_url);
     function handleSubmit(e) {
       e.preventDefault();
-      console.log(user);
       fetch(`users/1`, {
         method: "PATCH",
         headers: {

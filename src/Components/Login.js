@@ -9,7 +9,6 @@ export default function Login({ setUser, setLoggedIn }) {
   const history = useHistory();
 
   function handleSubmit(e) {
-    console.log("triggered");
     e.preventDefault();
     fetch("/login", {
       method: "POST",

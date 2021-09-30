@@ -34,7 +34,6 @@ export default function CatCalculator() {
     setBCS("");
     setIdealPetWeight("");
     setShowBCSChart(false)
-    console.log("reset");
   }
 
   function handleSubmit(e) {
