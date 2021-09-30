@@ -1,4 +1,5 @@
 import React from 'react'
+import Error from './Error'
 import Login from "./Login";
 import Logout from "./Logout";
 import { Route, Switch } from 'react-router-dom';
@@ -40,6 +41,9 @@ export default function MainContainer({ user, setUser, setLoggedIn }) {
         </Route>
         <Route exact path="/user">
           <MyProfile user={user} setUser={setUser} />
+        </Route>
+        <Route>
+          <Error />
         </Route>
       </Switch>
     </div>
