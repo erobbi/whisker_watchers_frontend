@@ -7,7 +7,7 @@ export default function WeightEntry({ entry }) {
   function EditWeightForm() {
     function handleEditSubmit(e) {
       e.preventDefault();
-      const id = e.target.id;
+        const id = entry.id
       fetch(`/weights/${id}`, {
         method: "PATCH",
         headers: {
@@ -25,10 +25,10 @@ export default function WeightEntry({ entry }) {
       });
     }
     return (
-      <form onSumbit={handleEditSubmit}>
+      <form onSubmit={handleEditSubmit}>
         <input
           type="text"
-          id={entry.id}
+          id="updatedWeight"
           value={updatedWeight}
           onChange={(e) => setUpdatedWeight(e.target.value)}
         />
