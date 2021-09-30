@@ -75,7 +75,6 @@ export default function CatRender({ cat, cats, setCats }) {
         Delete
       </button>
       <br />
-      <br />
       {viewWeightRender ? (
         <WeightRender
           cat_id={cat.id}
