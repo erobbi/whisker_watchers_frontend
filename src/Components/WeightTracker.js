@@ -25,11 +25,11 @@ export default function WeightTracker({ user }) {
       {catsFetched ? (
         <>
           <div>Your Pets:</div>
-          {Object.keys(user.cats).length > 0 ? (
+          {Object.keys(user).length > 0 ? (
             <>
               {user.cats.map((cat) => {
                 return (
-                  <CatRender cat={cat} cats={cats} setCats={setCats} />
+                  <CatRender key={cat.id} cat={cat} cats={cats} setCats={setCats} />
                 );
               })}
             </>

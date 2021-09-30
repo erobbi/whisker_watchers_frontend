@@ -11,7 +11,7 @@ export default function CatRender({ cat, cats, setCats }) {
 
   function handleCatClick(e) {
     e.preventDefault();
-    if (viewWeightRender == false) {
+    if (viewWeightRender === false) {
       setViewWeightRender(true);
     } else {
       setViewWeightRender(false);
@@ -22,7 +22,7 @@ export default function CatRender({ cat, cats, setCats }) {
     fetch(`/cats/${id}`, {
       method: "DELETE",
     });
-    const remainingCats = [...cats].filter((cat) => cat.id != id);
+    const remainingCats = [...cats].filter((cat) => cat.id !== id);
     setCats(remainingCats);
   }
 
