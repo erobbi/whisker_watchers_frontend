@@ -67,15 +67,13 @@ export default function CatRender({ cat, cats, setCats }) {
   return (
     <div>
       <Link to={`/cats/${cat.id}`}>
-        <img
-          id={cat.id}
-          className="catAvatar"
-          src={cat.cat_url}
-        />
+        <img id={cat.id} className="catAvatar" src={cat.cat_url} />
       </Link>
       <div id={cat.id}>
         {cat.name} Age: {cat.age}
       </div>
+      <Link to={`/cats/${cat.id}`}>View Stats</Link>
+      <br />
       <button id={cat.id} onClick={handleCatClick}>
         View
       </button>
