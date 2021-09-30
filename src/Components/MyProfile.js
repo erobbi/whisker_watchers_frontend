@@ -9,6 +9,21 @@ export default function MyProfile({ user, setUser }) {
         function handleSubmit(e) {
             e.preventDefault();
             console.log(user)
+            fetch(`users/1`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name
+                }),
+            })
+            .then((res) => res.json())
+            .then((user) => {
+                setUser(user)
+                setShowNameUpdater(false)
+            })
+            
         }
 
         return (
@@ -32,7 +47,7 @@ export default function MyProfile({ user, setUser }) {
           <button onClick={() => setShowNameUpdater(!showNameUpdater)}>Update Name</button>
           {showNameUpdater ? (<NameUpdater/>) : null}
           <h3>Avatar:</h3>
-          {Object.keys(user.avatar_url).length > 0 ? (
+          {user.avatar_url ? (
             <img src={user.avatar_url} alt="avatar" className="avatar" />
           ) : (
             <h3>You do not have an avatar.</h3>
