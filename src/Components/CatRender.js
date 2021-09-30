@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import WeightRender from "./WeightRender";
 
 export default function CatRender({ cat, cats, setCats }) {
@@ -6,6 +7,7 @@ export default function CatRender({ cat, cats, setCats }) {
   const [errors, setErrors] = useState([]);
   const [viewWeightRender, setViewWeightRender] = useState(false);
   const [viewAddWeight, setViewAddWeight] = useState(false);
+  let catId = useParams();
 
   function handleCatClick(e) {
     e.preventDefault();
@@ -64,7 +66,13 @@ export default function CatRender({ cat, cats, setCats }) {
 
   return (
     <div>
-      <img id={cat.id} className="catAvatar" src={cat.cat_url} />
+      <Link to={`/cats/${cat.id}`}>
+        <img
+          id={cat.id}
+          className="catAvatar"
+          src={cat.cat_url}
+        />
+      </Link>
       <div id={cat.id}>
         {cat.name} Age: {cat.age}
       </div>
@@ -82,8 +90,10 @@ export default function CatRender({ cat, cats, setCats }) {
           setViewWeightRender={setViewWeightRender}
         />
       ) : null}
-    <button id={cat.id} onClick={() => setViewAddWeight(!viewAddWeight)}>Add Weight</button>
-     {viewAddWeight ? <WeightForm /> : null}
+      <button id={cat.id} onClick={() => setViewAddWeight(!viewAddWeight)}>
+        Add Weight
+      </button>
+      {viewAddWeight ? <WeightForm /> : null}
       <br />
       <br />
       <br />

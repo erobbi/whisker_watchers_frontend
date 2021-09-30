@@ -4,7 +4,7 @@ import TopBar from "./TopBar";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
