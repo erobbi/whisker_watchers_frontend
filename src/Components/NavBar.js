@@ -25,18 +25,18 @@ export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
           </li>
         </NavLink>
         {loggedIn ? (
-        <NavLink exact to="weight_tracker">
+        <NavLink exact to="/weight_tracker">
           <li className="navItem">
             <a>Weight Tracker</a>
           </li>
         </NavLink>
         ) : null }
-        <NavLink exact to="cat_calculator">
+        <NavLink exact to="/cat_calculator">
           <li className="navItem">
             <a>Cat Calculator</a>
           </li>
         </NavLink>
-        <NavLink exact to="dog_calculator">
+        <NavLink exact to="/dog_calculator">
           <li className="navItem">
             <a>Dog Calculator</a>
           </li>
@@ -48,7 +48,7 @@ export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
             <li onClick={handleLogoutClick} className="navItemRight">
               <a>Signout</a>
             </li>
-            <NavLink className="navItemRight" exact to="user">
+            <NavLink className="navItemRight" exact to="/user">
               <li>
                 <a>Welcome, {user.name}</a>
               </li>
@@ -56,12 +56,12 @@ export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
           </>
         ) : (
           <>
-            <NavLink className="navItemRight" exact to="login">
+            <NavLink className="navItemRight" exact to="/login">
               <li>
                 <a>Login</a>
               </li>
             </NavLink>
-            <NavLink className="navItemRight" exact to="signup">
+            <NavLink className="navItemRight" exact to="/signup">
               <li>
                 <a>Signup</a>
               </li>
