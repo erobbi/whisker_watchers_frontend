@@ -1,49 +1,30 @@
 import React, { useState, useEffect } from "react";
+import EditWeightForm from './EditWeightForm'
 
 export default function WeightEntry({ entry }) {
   const [viewUpdateWeight, setViewUpdateWeight] = useState(false);
-  const [updatedWeight, setUpdatedWeight] = useState(entry.weight);
+  const [weight, setWeight] = useState(entry.weight)
 
-  function EditWeightForm() {
-    function handleEditSubmit(e) {
-      e.preventDefault();
-        const id = entry.id
-      fetch(`/weights/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          weight: updatedWeight
-        }),
-      }).then((res) => {
-        if (res.ok) {
-          res.json().then((data) => {
-            console.log(data);
-          });
-        }
-      });
-    }
-    return (
-      <form onSubmit={handleEditSubmit}>
-        <input
-          type="text"
-          id="updatedWeight"
-          value={updatedWeight}
-          onChange={(e) => setUpdatedWeight(e.target.value)}
-        />
-        <button type="submit">Update Weight</button>
-      </form>
-    );
-  }
   return (
     <div>
       <div>
-        {entry.weight} lbs on {entry.created_at}
+        {weight} lbs on {entry.created_at}
       </div>
-      <button id={entry.id} onClick={() => setViewUpdateWeight(!viewUpdateWeight)}>Edit</button>
-      {viewUpdateWeight ? <EditWeightForm /> : null}
-
+      <button
+        id={entry.id}
+        onClick={() => setViewUpdateWeight(!viewUpdateWeight)}
+      >
+        Edit
+      </button>
+      {viewUpdateWeight ? (
+        <EditWeightForm
+          id = {entry.id}
+          weight={weight}
+          setWeight={setWeight}
+          viewUpdateWeight={viewUpdateWeight}
+          setViewUpdateWeight={setViewUpdateWeight}
+        />
+      ) : null}
     </div>
   );
 }
