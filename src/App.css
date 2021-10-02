@@ -97,3 +97,8 @@ img {
 .catAvatar {
   width: 100px;
 }
+
+.chart {
+  display: flex;
+  justify-content: center;
+}
