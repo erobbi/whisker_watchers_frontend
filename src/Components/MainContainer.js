@@ -1,5 +1,5 @@
 import React from 'react'
-import Error from './Error'
+import Error from './Error';
 import Login from "./Login";
 import Logout from "./Logout";
 import { Route, Switch } from 'react-router-dom';
@@ -10,11 +10,15 @@ import WeightTracker from './WeightTracker';
 import NewPetForm from './NewPetForm';
 import CatStats from './CatStats';
 import MyProfile from './MyProfile';
+import HomePage from './HomePage';
 
 export default function MainContainer({ user, setUser, setLoggedIn }) {
   return (
     <div>
       <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
         <Route exact path="/login">
           <Login setUser={setUser} setLoggedIn={setLoggedIn} />
         </Route>
