@@ -12,6 +12,7 @@ export default function WeightTracker({ user }) {
         res.json().then((cats) => {
           setCats(cats);
           setCatsFetched(true);
+          console.log(cats);
         });
       }
     });
@@ -25,26 +26,18 @@ export default function WeightTracker({ user }) {
       {catsFetched ? (
         <>
           <div>Your Pets:</div>
-          {Object.keys(user).length > 0 ? (
-            <>
-              {user.cats.map((cat) => {
-                return (
-                  <CatRender key={cat.id} cat={cat} cats={cats} setCats={setCats} />
-                );
-              })}
-            </>
-          ) : (
-            <div>You have not added any cats.</div>
-          )}
+          {cats.map((cat) => {
+            return (
+              <CatRender key={cat.id} cat={cat} cats={cats} setCats={setCats} />
+            );
+          })}
         </>
-      ) : (
-        <div>You have not entered any pets.</div>
+      ) : (<div>You have not entered any pets.</div>
       )}
       <br />
       <br />
+      <Link to="/new_pet">Add New Pet</Link>
       <br />
-
-      <Link to="/new_pet">Add new Pet</Link>
       <br />
       <br />
     </div>

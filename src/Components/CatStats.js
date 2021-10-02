@@ -22,6 +22,7 @@ export default function CatStats() {
     return (
         <div>
             <div>Cat Stats for {cat.name}</div>
+            <div>Current weight is {cat.current_weight} lbs</div>
         </div>
     )
 }
