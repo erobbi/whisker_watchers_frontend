@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import CatCalculator from './CatCalculator';
 import DogCalculator from './DogCalculator';
 import Signup from './Signup';
-import WeightTracker from './WeightTracker';
+import YourPets from './YourPets';
 import NewPetForm from './NewPetForm';
 import CatStats from './CatStats';
 import MyProfile from './MyProfile';
@@ -25,8 +25,8 @@ export default function MainContainer({ user, setUser, setLoggedIn }) {
         <Route exact path="/logout">
           <Logout setUser={setUser} setLoggedIn={setLoggedIn} />
         </Route>
-        <Route exact path="/weight_tracker">
-          <WeightTracker user={user} />
+        <Route exact path="/yourpets">
+          <YourPets user={user} />
         </Route>
         <Route path="/cats/:id">
           <CatStats user={user} />

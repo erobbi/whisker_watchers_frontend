@@ -2,7 +2,7 @@ import CatRender from "./CatRender";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function WeightTracker({ user }) {
+export default function YourPets({ user }) {
   const [cats, setCats] = useState({});
   const [catsFetched, setCatsFetched] = useState(false);
 

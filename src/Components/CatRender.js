@@ -21,7 +21,7 @@ export default function CatRender({ cat, cats, setCats }) {
   
 
   return (
-    <div>
+    <div className="petcard">
       <Link to={`/cats/${cat.id}`}>
         <img id={cat.id} className="catAvatar" src={cat.cat_url} />
       </Link>
@@ -30,12 +30,6 @@ export default function CatRender({ cat, cats, setCats }) {
       </div>
       <Link to={`/cats/${cat.id}`}>View Stats</Link>
       <br />
-      <button
-        id={cat.id}
-        onClick={() => setViewWeightRender(!viewWeightRender)}
-      >
-        View
-      </button>
       {viewDeleteConfirmation ? <button id={cat.id} onClick={() => setViewDeleteConfirmation(!viewDeleteConfirmation)}>
        Cancel Delete
       </button> :  <button id={cat.id} onClick={() => setViewDeleteConfirmation(!viewDeleteConfirmation)}>
@@ -45,13 +39,6 @@ export default function CatRender({ cat, cats, setCats }) {
         Confirm Deletion
       </button> : null }
       <br />
-      {viewWeightRender ? (
-        <WeightRender
-          cat_id={cat.id}
-          viewWeightRender={viewWeightRender}
-          setViewWeightRender={setViewWeightRender}
-        />
-      ) : null}
       <button
         id={cat.id}
         onClick={() => {

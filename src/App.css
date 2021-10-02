@@ -37,7 +37,6 @@
   }
 }
 
-
 /* style for navbar */
 /* src: https://www.w3schools.com/css/css_navbar_horizontal.asp */
 ul {
@@ -65,8 +64,8 @@ li:last-child {
   border-right: none;
 }
 
-.navItemRight{
-  float:right
+.navItemRight {
+  float: right;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -75,7 +74,7 @@ li a:hover {
 }
 
 .active {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
 }
 /* end style for navbar */
 
@@ -85,12 +84,11 @@ li a:hover {
   padding-right: 30%;
 }
 
-
 img {
   width: 380px;
 }
 
-.avatar  {
+.avatar {
   width: 200px;
 }
 
@@ -98,7 +96,102 @@ img {
   width: 100px;
 }
 
-.chart {
+.flexCenter {
   display: flex;
   justify-content: center;
+}
+
+.petcard {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.catstats {
+  justify-content: center;
+}
+
+
+.introduction_background {
+  border-bottom-left-radius: 25px;
+  width: 100%;
+}
+
+.background-image {
+  border-top-left-radius: 100px;
+  bottom: 0;
+  height: calc(100% - 100px);
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  position: absolute;
+  right: 0;
+  width: 47%;
+}
+
+.introduction {
+    align-items: flex-start;
+    background: #f6f4ee;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    min-height: 600px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: relative;
+    width: 100%;
+}
+
+.introduction_splash {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 54%;
+}
+
+.introduction_splash_inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+}
+
+.introduction_splash_headline_line {
+    color: #191717;
+    font-family: 'PT Serif', serif;;
+    font-size: 45px;
+    line-height: 1.30;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.introduction_splash_button_ct {
+    align-items: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-top: 1rem;
+    width: 70%;
+}
+
+.introduction__splash_ct_button {
+    align-items: center;
+    background-color: #fb513b;
+    border: 2px solid #fb513b;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-family: Untitled Sans;
+    font-size: 20px;
+    height: 60px;
+    justify-content: center;
+    letter-spacing: 1px;
+    min-width: 120px;
 }

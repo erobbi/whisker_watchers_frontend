@@ -9,6 +9,8 @@ import {
   YAxis,
   Tooltip,
 } from "recharts";
+import WeightForm from "./WeightForm";
+import WeightRender from "./WeightRender";
 
 export default function CatStats() {
   const { id } = useParams();
@@ -36,11 +38,11 @@ export default function CatStats() {
     });
   }, [id]);
   return (
-    <div>
+    <div className="catstats">
       <h2>Cat Stats for {cat.name}</h2>
       <h3>Current weight: {cat.current_weight} lbs</h3>
 
-      <div className="chart">
+      <div>
         <AreaChart
           width={500}
           height={400}
@@ -65,6 +67,13 @@ export default function CatStats() {
             fill="#8884d8"
           />
         </AreaChart>
+      </div>
+      {/* <div className='fill'></div> */}
+      <div >
+        <WeightRender cat_id={id} />
+        <br />
+        <br />
+        <WeightForm />
       </div>
     </div>
   );

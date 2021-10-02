@@ -25,9 +25,9 @@ export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
           </li>
         </NavLink>
         {loggedIn ? (
-        <NavLink exact to="/weight_tracker">
+        <NavLink exact to="/yourpets">
           <li className="navItem">
-            <a>Weight Tracker</a>
+            <a>Your Pets</a>
           </li>
         </NavLink>
         ) : null }
