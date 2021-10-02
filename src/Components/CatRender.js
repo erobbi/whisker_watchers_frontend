@@ -7,7 +7,7 @@ export default function CatRender({ cat, cats, setCats }) {
   const [viewWeightRender, setViewWeightRender] = useState(false);
   const [viewAddWeight, setViewAddWeight] = useState(false);
   let catId = useParams();
-  const [selectedCatId, setSelectedCatId] = useState("");
+  const [viewDeleteConfirmation, setViewDeleteConfirmation] = useState(false);
 
 
   function handleDeleteClick(id) {
@@ -30,12 +30,20 @@ export default function CatRender({ cat, cats, setCats }) {
       </div>
       <Link to={`/cats/${cat.id}`}>View Stats</Link>
       <br />
-      <button id={cat.id} onClick={() => setViewWeightRender(!viewWeightRender)}>
+      <button
+        id={cat.id}
+        onClick={() => setViewWeightRender(!viewWeightRender)}
+      >
         View
       </button>
-      <button id={cat.id} onClick={() => handleDeleteClick(cat.id)}>
+      {viewDeleteConfirmation ? <button id={cat.id} onClick={() => setViewDeleteConfirmation(!viewDeleteConfirmation)}>
+       Cancel Delete
+      </button> :  <button id={cat.id} onClick={() => setViewDeleteConfirmation(!viewDeleteConfirmation)}>
         Delete
-      </button>
+      </button>}
+      {viewDeleteConfirmation ? <button id={cat.id} onClick={() => handleDeleteClick(cat.id)}>
+        Confirm Deletion
+      </button> : null }
       <br />
       {viewWeightRender ? (
         <WeightRender
@@ -44,13 +52,21 @@ export default function CatRender({ cat, cats, setCats }) {
           setViewWeightRender={setViewWeightRender}
         />
       ) : null}
-      <button id={cat.id} onClick={() => {setViewAddWeight(!viewAddWeight)}}>
+      <button
+        id={cat.id}
+        onClick={() => {
+          setViewAddWeight(!viewAddWeight);
+        }}
+      >
         Add Weight
       </button>
-      {viewAddWeight ? <WeightForm
+      {viewAddWeight ? (
+        <WeightForm
           cat={cat}
           viewAddWeight={viewAddWeight}
-          setViewAddWeight={setViewAddWeight}/> : null}
+          setViewAddWeight={setViewAddWeight}
+        />
+      ) : null}
       <br />
       <br />
       <br />
