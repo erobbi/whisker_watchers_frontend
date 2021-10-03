@@ -99,7 +99,7 @@ export default function CatCalculator() {
           <div>Body Condition Score</div>
           <button onClick={() => setShowBCSChart(!showBCSChart)}>Help</button>
           {showBCSChart ? (
-            <img
+            <img className="bcschart"
               src={catBCSchart}
               alt="cat body condition score chart"
               id="bcsChart"

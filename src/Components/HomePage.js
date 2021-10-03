@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
   return (
-    <div className="homePage">
-      <NavBar
-        loggedIn={loggedIn}
-        setLoggedIn={setLoggedIn}
-        setUser={setUser}
-        user={user}
-      />
-      <div className="introduction_mainbox_container2">
-        <div className="introduction_background">
+    <div>
+      <div className="homePage">
+        <NavBar
+          loggedIn={loggedIn}
+          setLoggedIn={setLoggedIn}
+          setUser={setUser}
+          user={user}
+        />
+        <div className="introduction__background">
           <img
             className="background-image"
             src="https://i.ibb.co/2FShhW6/Cat2.jpg"
@@ -27,13 +28,14 @@ export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
               </p>
               <div className="introduction_splash_ct">
                 <Link to="/cat_calculator">
-                  <button class="ui primary button">Continue</button>
+                  <button class="ui primary button">Get Started</button>
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
