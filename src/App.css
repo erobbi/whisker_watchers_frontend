@@ -39,7 +39,239 @@
 
 /* style for navbar */
 /* src: https://www.w3schools.com/css/css_navbar_horizontal.asp */
-ul {
+
+.navContaineradf {
+  background-color: transparent;
+  box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  padding: 0 2% 0 5%;
+  position: relative;
+  width: 100%;
+}
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  /* below may not be needed */
+  position: relative;
+  object-fit: cover;
+}
+
+.navContainer {
+  width: 100%;
+  height: 70px; /* could also be 100% */
+  min-height: 60px;
+  background-color: #f6f4ee;
+  display: flex;
+  box-shadow: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5%;
+  padding-right: 2%;
+  position: relative;
+  border-bottom: 1px solid #000;
+}
+
+.logo {
+  /* display: inline-block; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: initial;
+}
+
+.menuBar {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  height: 100%;
+}
+
+.navItem {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.navItem:hover {
+  background-color: white;
+}
+
+.navItem a {
+  color: black;
+  font-size: 16px;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.navItem:hover a {
+  color: black;
+}
+
+.menuBarNoom {
+  /* align-items: center; */
+  justify-content: space-around;
+  width: 70%;
+  align-items: center;
+}
+
+.introduction_mainbox_container2 {
+  display: flex;
+  justify-content: space-between;
+  background: #f6f4ee;
+}
+
+/* .mainContainer {
+  background: #f6f4ee;
+  display: flex;
+  justify-content: space-between;
+} */
+
+.introduction_splash {
+  display: flex;
+  order: 1;
+  height: 100%;
+  justify-content: center;
+  width: 50%;
+}
+
+.introduction_splash_inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+}
+
+.introduction_splash_headline_line {
+    color: #191717;
+    font-family: 'PT Serif', serif;;
+    font-size: 40px;
+    line-height: 1.30;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.introduction_background {
+  display: flex-end;
+  order: 2;
+  border-bottom-left-radius: 25px;
+  /* margin-right: auto; */
+  /* width: 40%; */
+}
+
+.introduction_splash_button_ct {
+    align-items: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-top: 1rem;
+    width: 70%;
+}
+
+.introduction__splash_ct_button {
+    align-items: center;
+    background-color: #fb513b;
+    border: 2px solid #fb513b;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-family: Untitled Sans;
+    font-size: 20px;
+    height: 60px;
+    justify-content: center;
+    letter-spacing: 1px;
+    min-width: 120px;
+}
+
+/* 
+.introduction {
+  align-items: flex-start;
+  background: #f6f4ee;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  min-height: 600px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+} */
+
+/* 
+
+*/
+/* .background-image {
+  border-top-left-radius: 100px;
+  bottom: 0;
+  height: calc(100% - 100px);
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  position: absolute;
+  right: 0;
+  width: 47%;
+} */
+/*
+.introduction > introduction_splash {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 54%;
+}
+
+
+.introduction_splash_headline_line {
+    color: #191717;
+    font-family: 'PT Serif', serif;;
+    font-size: 45px;
+    line-height: 1.30;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+
+
+.introduction__splash_ct_button {
+    align-items: center;
+    background-color: #fb513b;
+    border: 2px solid #fb513b;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-family: Untitled Sans;
+    font-size: 20px;
+    height: 60px;
+    justify-content: center;
+    letter-spacing: 1px;
+    min-width: 120px;
+} */
+
+/* ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -66,16 +298,16 @@ li:last-child {
 
 .navItemRight {
   float: right;
-}
+} */
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
+/* li a:hover {
   background-color: #111;
 }
 
 .active {
   background-color: #04aa6d;
-}
+} */
 /* end style for navbar */
 
 /* style for slider */
@@ -112,86 +344,6 @@ img {
   justify-content: center;
 }
 
-
-.introduction_background {
-  border-bottom-left-radius: 25px;
-  width: 100%;
-}
-
-.background-image {
-  border-top-left-radius: 100px;
-  bottom: 0;
-  height: calc(100% - 100px);
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-  position: absolute;
-  right: 0;
-  width: 47%;
-}
-
-.introduction {
-    align-items: flex-start;
-    background: #f6f4ee;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-    min-height: 600px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    position: relative;
-    width: 100%;
-}
-
-.introduction_splash {
+.homepageflex {
   display: flex;
-  height: 100%;
-  justify-content: center;
-  width: 54%;
-}
-
-.introduction_splash_inner {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  margin: auto;
-  width: 90%;
-}
-
-.introduction_splash_headline_line {
-    color: #191717;
-    font-family: 'PT Serif', serif;;
-    font-size: 45px;
-    line-height: 1.30;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-.introduction_splash_button_ct {
-    align-items: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    margin-top: 1rem;
-    width: 70%;
-}
-
-.introduction__splash_ct_button {
-    align-items: center;
-    background-color: #fb513b;
-    border: 2px solid #fb513b;
-    border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    font-family: Untitled Sans;
-    font-size: 20px;
-    height: 60px;
-    justify-content: center;
-    letter-spacing: 1px;
-    min-width: 120px;
 }

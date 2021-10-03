@@ -20,12 +20,12 @@ function App() {
 
   return (
     <div className="App">
-      <TopBar
+      {/* <TopBar
         loggedIn={loggedIn}
         setLoggedIn={setLoggedIn}
         user={user}
         setUser={setUser}
-      />
+      /> */}
       <MainContainer
         loggedIn={loggedIn}
         setLoggedIn={setLoggedIn}

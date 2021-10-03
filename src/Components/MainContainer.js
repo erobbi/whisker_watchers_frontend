@@ -12,12 +12,17 @@ import CatStats from './CatStats';
 import MyProfile from './MyProfile';
 import HomePage from './HomePage';
 
-export default function MainContainer({ user, setUser, setLoggedIn }) {
+export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) {
   return (
     <div>
       <Switch>
         <Route exact path="/">
-          <HomePage />
+          <HomePage
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            user={user}
+            setUser={setUser}
+          />
         </Route>
         <Route exact path="/login">
           <Login setUser={setUser} setLoggedIn={setLoggedIn} />

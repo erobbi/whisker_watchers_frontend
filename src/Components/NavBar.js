@@ -3,72 +3,71 @@ import { NavLink, useHistory } from "react-router-dom";
 
 export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
   const history = useHistory();
-  const [reRender, setReRender] = useState(0)
+  const [reRender, setReRender] = useState(0);
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser({});
-        setReRender(reRender + 1)
+        setReRender(reRender + 1);
         setLoggedIn(false);
-        history.push('/')
+        history.push("/");
       }
     });
   }
 
   return (
-    <div>
-      <ul>
-        <NavLink exact to="/" className="navItem">
-          <li>
+    <div className="navContainer">
+      <div className="logo">Whisker Watchers</div>
+      <div className="menuBar">
+        <div className="navItem">
+          <NavLink exact to="/" className="nav">
             <a>Home</a>
-          </li>
-        </NavLink>
-        {loggedIn ? (
-        <NavLink exact to="/yourpets">
-          <li className="navItem">
-            <a>Your Pets</a>
-          </li>
-        </NavLink>
-        ) : null }
-        <NavLink exact to="/cat_calculator">
-          <li className="navItem">
+          </NavLink>
+        </div>
+        <div className="navItem">
+          {loggedIn ? (
+            <NavLink exact to="/yourpets">
+              <a>Your Pets</a>
+            </NavLink>
+          ) : null}
+        </div>
+        <div className="navItem">
+          <NavLink exact to="/cat_calculator">
             <a>Cat Calculator</a>
-          </li>
-        </NavLink>
-        <NavLink exact to="/dog_calculator">
-          <li className="navItem">
+          </NavLink>
+        </div>
+        <div className="navItem">
+          <NavLink exact to="/dog_calculator">
             <a>Dog Calculator</a>
-          </li>
-        </NavLink>
-
-        {/* right side of navBar (reverse order, for float right rendering) */}
+          </NavLink>
+        </div>
         {loggedIn ? (
           <>
-            <li onClick={handleLogoutClick} className="navItemRight">
+            <div onClick={handleLogoutClick} className="navItem">
               <a>Signout</a>
-            </li>
-            <NavLink className="navItemRight" exact to="/user">
-              <li>
+            </div>
+            <div classNam="navItem">
+              <NavLink className="nav" exact to="/user">
                 <a>Welcome, {user.name}</a>
-              </li>
-            </NavLink>
+              </NavLink>
+            </div>
           </>
         ) : (
           <>
-            <NavLink className="navItemRight" exact to="/login">
-              <li>
+            <div className="navItem">
+              <NavLink className="nav" exact to="/login">
                 <a>Login</a>
-              </li>
-            </NavLink>
-            <NavLink className="navItemRight" exact to="/signup">
-              <li>
+              </NavLink>
+            </div>
+            <div className="navItem">
+              <NavLink className="nav" exact to="/signup">
                 <a>Signup</a>
-              </li>
-            </NavLink>
+              </NavLink>
+            </div>
           </>
         )}
-      </ul>
+      </div>
     </div>
   );
 }
