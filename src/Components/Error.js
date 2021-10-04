@@ -1,10 +1,10 @@
-import React from 'react'
-import maxcat from '../Images/max_portrait.png'
+import React from "react";
+import fatmax from "../Images/fatmax.png";
 export default function Error() {
-    return (
-      <div className="errorPage">
-        <h1>Error! Page not found.</h1>
-          <img src={maxcat} style={{height: "100px"}}/>
-      </div>
-    );
+  return (
+    <div className="errorPage">
+      <img src={fatmax} style={{ height: "200px" }} />
+      <h1>Error! Page not found.</h1>
+    </div>
+  );
 }
