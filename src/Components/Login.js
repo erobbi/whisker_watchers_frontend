@@ -30,35 +30,44 @@ export default function Login({ setLoggedIn, setUser }) {
     });
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="username"
-        id="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
+    <div className="standardBackground">
       <br />
       <br />
-      <input
-        type="password"
-        placeholder="password"
-        id="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <br />
-      <Button type="submit" variant="contained">
-        Login
-      </Button>
-      {errors
-        ? errors.map((err) => (
-            <h3 style={{ color: "red" }} key={err}>
-              {err}
-            </h3>
-          ))
-        : null}
-    </form>
+      <div className="standardFlexBox">
+        <form className="ui form" onSubmit={handleSubmit}>
+          <div className="field">
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder="username"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="field">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <br />
+          <Button type="submit" variant="contained">
+            Login
+          </Button>
+          {errors
+            ? errors.map((err) => (
+                <h3 style={{ color: "red" }} key={err}>
+                  {err}
+                </h3>
+              ))
+            : null}
+        </form>
+      </div>
+    </div>
   );
 }
