@@ -24,11 +24,12 @@ export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
           <div className="introduction_splash_inner">
             <div class="introduction_splash_headline">
               <p class="introduction_splash_headline_line">
-                Your future, to a healthier cat.
+                <span>Live healthier. Jump Higher.</span>
+                <span></span>
               </p>
               <div className="introduction_splash_ct">
                 <Link to="/catassessment/1">
-                  <button class="ui primary button">Get Started</button>
+                  <button class="primary_button">Starting today</button>
                 </Link>
               </div>
             </div>
