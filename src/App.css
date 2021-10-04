@@ -1,3 +1,11 @@
+.color_palette {
+  color: #5c4b51;
+  color: #8cbeb2;
+  color: #f2ebbf;
+  color: #f3b562;
+  color: #f06060;
+}
+
 .App {
   text-align: center;
 }
@@ -133,31 +141,121 @@
   width: 50%;
 }
 
-.survey {
+.orangeBackground {
   background: #f3b562;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.survey {
   display: flex;
-  align-items: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
-  min-height: 650px;
+  /* height: 100vh; */
+  min-height: 60vh;
   /* position: relative; */
   /* object-fit: cover; */
 }
 
-.survey_footer {
- height: 160px;
- background-color: #f2ebbf; 
- width: 100%;
-}
-
 .survey_content {
-  background-color: #f6f4ee;
-  /* padding-top: 120px; */
+  padding-top: 25vh;
+  padding-bottom: 10vh;
+  align-content: center;
 }
 
+.survey_content_inner {
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.survey_content_main{
+  max-width: 1000px;
+  margin: auto;
+}
+
+.survey_headers {
+  font-size: 40px;
+  line-height: 1.25;
+  color: #fff;
+  text-align: center;
+}
+
+.maxcat {
+  /* display: flex; */
+  max-width: 300px;
+  max-height: 120px;
+  margin-bottom: 5px;
+  vertical-align: baseline;
+  align-content: flex-start;
+}
+
+.survey_footer {
+  height: 40vh;
+  background-color: #f2ebbf;
+  width: 100%;
+  position: relative;
+}
+
+.survey_button_box {
+  /* max-width: 600px; */
+  /* display: flex; */
+  justify-content: center;
+  /* align-items: flex-start; */
+}
+
+.survey_button_box_inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: center;
+  height: 150px;
+  max-width: 400px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.primary_button {
+  display: inline-block;
+  position: relative;
+  padding: 0 40px;
+  height: 48px;
+  border-radius: 24px;
+  border: 0;
+  background-color: #f06060;
+  color: #fff;
+  font-size: 22px;
+  line-height: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.skip_survey_button {
+  display: inline-block;
+  color: #435569;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #435569;
+}
+.secondary_button {
+  display: inline-block;
+  position: relative;
+  padding: 0 20px;
+  height: 48px;
+  border-radius: 24px;
+  border: 0;
+  background-color: #f06060;
+  color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
 .introduction_right {
   display: flex;
   order: 2;
@@ -178,7 +276,6 @@
   right: 0;
   width: 47%;
 }
-
 
 .potatoes {
   width: 100px;
