@@ -13,7 +13,7 @@ export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
           setUser={setUser}
           user={user}
         />
-        <div className="introduction__background">
+        <div className="introduction_background">
           <img
             className="background-image"
             src="https://i.ibb.co/2FShhW6/Cat2.jpg"
@@ -27,7 +27,7 @@ export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
                 Your future, to a healthier cat.
               </p>
               <div className="introduction_splash_ct">
-                <Link to="/cat_calculator">
+                <Link to="/catassessment/1">
                   <button class="ui primary button">Get Started</button>
                 </Link>
               </div>

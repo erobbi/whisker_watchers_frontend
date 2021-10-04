@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Slider, { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
-import catBCSchart from "../Images/catBCSchart.jpg";
+import catBCSchart from "../../Images/catBCSchart.jpg";
 
 export default function CatCalculator() {
   const [currentWeight, setCurrentWeight] = useState("");

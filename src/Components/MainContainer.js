@@ -3,7 +3,7 @@ import Error from './Error';
 import Login from "./Login";
 import Logout from "./Logout";
 import { Route, Switch } from 'react-router-dom';
-import CatCalculator from './CatCalculator';
+import CatCalculator from './CatAssessment /CatCalculator';
 import DogCalculator from './DogCalculator';
 import Signup from './Signup';
 import YourPets from './YourPets';
@@ -11,6 +11,7 @@ import NewPetForm from './NewPetForm';
 import CatStats from './CatStats';
 import MyProfile from './MyProfile';
 import HomePage from './HomePage';
+import CatAssessment1 from './CatAssessment /CatAssessment1';
 
 export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) {
   return (
@@ -35,6 +36,9 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
         </Route>
         <Route path="/cats/:id">
           <CatStats user={user} />
+        </Route>
+        <Route exact path="/catassessment/1">
+          <CatAssessment1 />
         </Route>
         <Route exact path="/cat_calculator">
           <CatCalculator />
