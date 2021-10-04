@@ -28,7 +28,7 @@ export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
                 <span></span>
               </p>
               <div className="introduction_splash_ct">
-                <Link to="/catassessment/1">
+                <Link to="/catsurvey/1">
                   <button class="primary_button">Starting today</button>
                 </Link>
               </div>

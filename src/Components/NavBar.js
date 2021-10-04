@@ -37,11 +37,6 @@ export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
             <a>Cat Calculator</a>
           </NavLink>
         </div>
-        <div className="navItem">
-          <NavLink exact to="/dog_calculator">
-            <a>Dog Calculator</a>
-          </NavLink>
-        </div>
         {loggedIn ? (
           <>
             <div onClick={handleLogoutClick} className="navItem">

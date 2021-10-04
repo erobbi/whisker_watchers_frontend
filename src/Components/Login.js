@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 
-export default function Login({ setUser, setLoggedIn }) {
+export default function Login({ setLoggedIn, setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
