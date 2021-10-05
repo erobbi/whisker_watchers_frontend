@@ -14,6 +14,7 @@ import HomePage from './HomePage';
 import CatSurvey1 from './CatSurvey/CatSurvey1';
 import CatSurvey2 from './CatSurvey/CatSurvey2';
 import NavBar from "./NavBar";
+import Footer from './Footer';
 
 export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) {
   return (
@@ -26,6 +27,7 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
             user={user}
             setUser={setUser}
           />
+          <Footer />
         </Route>
         <Route exact path="/login">
           <NavBar
@@ -35,6 +37,7 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
             user={user}
           />
           <Login setLoggedIn={setLoggedIn} setUser={setUser} />
+          <Footer />
         </Route>
         <Route exact path="/logout">
           <Logout setUser={setUser} setLoggedIn={setLoggedIn} />
@@ -52,6 +55,7 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
             user={user}
             setUser={setUser}
           />
+          <Footer />
         </Route>
         <Route path="/cats/:id">
           <NavBar
@@ -61,6 +65,7 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
             user={user}
           />
           <CatStats user={user} />
+          <Footer />
         </Route>
         <Route exact path="/catSurvey/1">
           <CatSurvey1 />
@@ -81,6 +86,7 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
             user={user}
             setUser={setUser}
           />
+          <Footer />
         </Route>
         <Route exact path="/signup">
           <NavBar
@@ -90,6 +96,7 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
             user={user}
           />
           <Signup setUser={setUser} />
+          <Footer />
         </Route>
         <Route exact path="/new_pet">
           <NavBar
@@ -104,9 +111,11 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
             user={user}
             setUser={setUser}
           />
+          <Footer />
         </Route>
         <Route exact path="/user">
           <MyProfile user={user} setUser={setUser} />
+          <Footer />
         </Route>
         <Route>
           <NavBar
@@ -116,6 +125,7 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
             user={user}
           />
           <Error />
+          <Footer />
         </Route>
       </Switch>
     </div>

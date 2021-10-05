@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
-import Footer from "./Footer";
 
 export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
   return (
@@ -37,7 +36,6 @@ export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

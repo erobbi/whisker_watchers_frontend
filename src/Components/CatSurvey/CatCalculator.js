@@ -256,7 +256,6 @@ export default function CatCalculator({
             </div>
           )}
         </div>
-        <div></div>
       </div>
     </div>
   );
