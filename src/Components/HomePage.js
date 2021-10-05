@@ -23,7 +23,8 @@ export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
         <div className="introduction_splash">
           <div className="introduction_splash_inner">
             <div class="introduction_splash_headline">
-              <p class="introduction_splash_headline_line">
+              <p class="introduction_splash_headline_line"
+              >
                 <span>Live healthier. Jump Higher.</span>
                 <span></span>
               </p>
