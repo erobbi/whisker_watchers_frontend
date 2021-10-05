@@ -19,7 +19,7 @@ export default function CatCalculator({
   const [BCS, setBCS] = useState("");
   const [idealPetWeight, setIdealPetWeight] = useState("");
 
-  const [showBCSChart, setShowBCSChart] = useState(false);
+  const [showBCSChart, setShowBCSChart] = useState(true);
   const [calculatedValues, setCalculatedValues] = useState({});
   const [hasResult, setHasResult] = useState(false);
 
@@ -67,86 +67,6 @@ export default function CatCalculator({
       });
   }
 
-  function CalculatorForm() {
-    return (
-      <div>
-        <form className="ui form" onSubmit={handleSubmit}>
-          <div classname="field">
-            <label>Current Weight</label>
-            <input
-              name="CurrentWeight"
-              type="number"
-              placeholder="Pet Weight (lbs)"
-              value={currentWeight}
-              onChange={(e) => {
-                setCurrentWeight(e.target.value);
-              }}
-            />
-          </div>
-          <br />
-          <div className="ui form">
-            <label>Is your cat spayed/neutered? </label>
-            <input
-              type="radio"
-              value="true"
-              name="neutered"
-              onChange={(e) => setIsNeutered(true)}
-            />
-            <label for="true">Yes</label>
-            <input
-              type="radio"
-              value="false"
-              name="neutered"
-              onChange={(e) => setIsNeutered(false)}
-            />
-            <label for="false">No</label>
-          </div>
-          <br />
-
-          {/* slider here using rc-slider  https://react-component.github.io/slider/?path=/story/rc-slider--handle */}
-          <div className="slider">
-            <div>Body Condition Score</div>
-            <button onClick={() => setShowBCSChart(!showBCSChart)}>Help</button>
-            {showBCSChart ? (
-              <img
-                className="bcschart"
-                src={catBCSchart}
-                alt="cat body condition score chart"
-                id="bcsChart"
-              />
-            ) : null}
-            <Slider
-              defaultValue={5}
-              min={1}
-              max={9}
-              step={0.5}
-              onChange={(e) => setBCS(e)}
-              marks={BCSMarks}
-              style={{ width: "100%" }}
-            />
-          </div>
-          <br />
-          <br />
-          <br />
-          <input
-            type="text"
-            placeholder="Ideal Pet Weight (optional)"
-            id="idealPetWeight"
-            value={idealPetWeight}
-            onChange={(e) => setIdealPetWeight(e.target.value)}
-          />
-          <br />
-          <br />
-          <div style={{ padding: "20px" }}>
-            <button className="primary_button" type="submit">
-              Calculate
-            </button>
-          </div>
-        </form>
-      </div>
-    );
-  }
-
   function Results() {
     return (
       <div>
@@ -161,7 +81,7 @@ export default function CatCalculator({
         </Link>
         <div style={{ padding: "10px" }}>
           <button className="secondary_button_disabled" onClick={handleReset}>
-            Go Back
+            Try Again
           </button>
         </div>
       </div>
@@ -169,7 +89,7 @@ export default function CatCalculator({
   }
 
   return (
-    <div className="standardBackground">
+    <div>
       <div className="standardFlexBox">
         <div className="calculatorFlexBox">
           <h2>Cat Calculator</h2>

@@ -1,22 +1,29 @@
-import React from 'react'
-import Error from './Error';
+import React from "react";
+import Error from "./Error";
 import Login from "./Login";
 import Logout from "./Logout";
-import { Route, Switch } from 'react-router-dom';
-import CatCalculator from './CatSurvey/CatCalculator';
-import DogCalculator from './DogCalculator';
-import Signup from './Signup';
-import YourPets from './YourPets';
-import NewPetForm from './NewPetForm';
-import CatStats from './CatStats';
-import MyProfile from './MyProfile';
-import HomePage from './HomePage';
-import CatSurvey1 from './CatSurvey/CatSurvey1';
-import CatSurvey2 from './CatSurvey/CatSurvey2';
+import { Route, Switch } from "react-router-dom";
+import CatCalculator from "./CatSurvey/CatCalculator";
+import DogCalculator from "./DogCalculator";
+import Signup from "./Signup";
+import YourPets from "./YourPets";
+import NewPetForm from "./NewPetForm";
+import CatStats from "./CatStats";
+import MyProfile from "./MyProfile";
+import HomePage from "./HomePage";
+import CatSurvey1 from "./CatSurvey/CatSurvey1";
+import CatSurvey2 from "./CatSurvey/CatSurvey2";
 import NavBar from "./NavBar";
-import Footer from './Footer';
+import Footer from "./Footer";
+import CatSurvey3 from "./CatSurvey/CatSurvey3";
+import CatSurveyAlt from "./CatSurvey/CatSurveyAlt";
 
-export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) {
+export default function MainContainer({
+  user,
+  setUser,
+  loggedIn,
+  setLoggedIn,
+}) {
   return (
     <div>
       <Switch>
@@ -73,6 +80,12 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
         <Route exact path="/catSurvey/2">
           <CatSurvey2 />
         </Route>
+        <Route exact path="/catSurvey/3">
+          <CatSurvey3 />
+        </Route>
+        <Route exact path="/catSurveyalt/">
+          <CatSurveyAlt />
+        </Route>
         <Route exact path="/cat_calculator">
           <NavBar
             loggedIn={loggedIn}
@@ -80,12 +93,14 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
             setUser={setUser}
             user={user}
           />
-          <CatCalculator
-            loggedIn={loggedIn}
-            setLoggedIn={setLoggedIn}
-            user={user}
-            setUser={setUser}
-          />
+          <div className="standardBackground">
+            <CatCalculator
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              user={user}
+              setUser={setUser}
+            />
+          </div>
           <Footer />
         </Route>
         <Route exact path="/signup">

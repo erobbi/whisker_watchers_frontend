@@ -1,5 +1,6 @@
+import { color } from "@mui/system";
 import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 
 export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
   const history = useHistory();
@@ -18,10 +19,12 @@ export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
 
   return (
     <div className="navContainer">
-      <div className="logo">Whisker Watchers</div>
+      <NavLink exact to="/" style={{ color: "black" }}>
+        <div className="logo">Whisker Watchers</div>
+      </NavLink>
       <div className="menuBar">
         <div className="navItem">
-          <NavLink exact to="/" className="nav">
+          <NavLink exact to="/">
             <a>Home</a>
           </NavLink>
         </div>
