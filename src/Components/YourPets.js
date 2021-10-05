@@ -19,24 +19,25 @@ export default function YourPets({ user }) {
   }, []);
 
   return (
-    <div>
-      <div>Weight Tracker</div>
-      <br />
-      <br />
+    <div className="standardBackground">
+      <h2 style={{padding: "10px"}}>Your Pets</h2>
       {catsFetched ? (
-        <>
-          <div>Your Pets:</div>
+        <div className="catMargins">
+        <div className="catFlexBox">
           {cats.map((cat) => {
             return (
               <CatRender key={cat.id} cat={cat} cats={cats} setCats={setCats} />
             );
           })}
-        </>
+        </div>
+        </div>
       ) : (<div>You have not entered any pets.</div>
       )}
       <br />
       <br />
-      <Link to="/new_pet">Add New Pet</Link>
+      <Link to="/new_pet">
+        <button className="primary_button">Add New Pet</button>
+      </Link>
       <br />
       <br />
       <br />

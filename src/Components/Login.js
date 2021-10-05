@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Button from "@mui/material/Button";
 
 export default function Login({ setLoggedIn, setUser }) {
   const [username, setUsername] = useState("");
@@ -23,7 +22,7 @@ export default function Login({ setLoggedIn, setUser }) {
       if (r.ok) {
         r.json().then(setUser);
         setLoggedIn(true);
-        history.push("/weight_tracker");
+        history.push("/yourpets");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -56,9 +55,7 @@ export default function Login({ setLoggedIn, setUser }) {
             />
           </div>
           <br />
-          <Button type="submit" variant="contained">
-            Login
-          </Button>
+          <button className="primary_button" type="submit">Login</button>
           {errors
             ? errors.map((err) => (
                 <h3 style={{ color: "red" }} key={err}>

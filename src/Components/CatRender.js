@@ -25,9 +25,9 @@ export default function CatRender({ cat, cats, setCats }) {
       <Link to={`/cats/${cat.id}`}>
         <img id={cat.id} className="catAvatar" src={cat.cat_url} />
       </Link>
-      <div id={cat.id}>
-        {cat.name} Age: {cat.age}
-      </div>
+      <p id={cat.id}>
+        <h3>{cat.name}</h3> Age: {cat.age}
+      </p>
       <Link to={`/cats/${cat.id}`}>View Stats</Link>
       <br />
       {viewDeleteConfirmation ? <button id={cat.id} onClick={() => setViewDeleteConfirmation(!viewDeleteConfirmation)}>
@@ -54,9 +54,6 @@ export default function CatRender({ cat, cats, setCats }) {
           setViewAddWeight={setViewAddWeight}
         />
       ) : null}
-      <br />
-      <br />
-      <br />
     </div>
   );
 }

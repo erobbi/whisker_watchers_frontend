@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 export default function HomePage({ loggedIn, setLoggedIn, user, setUser }) {
   return (
-    <div>
+    <div className="standardBackground">
       <div className="homePage">
         <NavBar
           loggedIn={loggedIn}

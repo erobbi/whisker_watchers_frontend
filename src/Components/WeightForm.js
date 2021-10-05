@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-export default function WeightForm({ cat, viewAddWeight, setViewAddWeight }) {
+export default function WeightForm({ id, reRender, setReRender }) {
   const [weightEntry, setWeightEntry] = useState("");
   const [errors, setErrors] = useState([]);
 
   function handleWeightSubmit(e) {
     e.preventDefault(e);
-    const cat_id = cat.id;
+    const cat_id = id;
     fetch("/weights", {
       method: "POST",
       headers: {
@@ -21,7 +21,8 @@ export default function WeightForm({ cat, viewAddWeight, setViewAddWeight }) {
         res.json().then((data) => {
           console.log(data);
           setWeightEntry("");
-          setViewAddWeight(!viewAddWeight);
+          setReRender(() => {reRender = reRender+1});
+          console.log(reRender)
         });
       } else {
         res.json().then((err) => setErrors(err.errors));
@@ -30,7 +31,7 @@ export default function WeightForm({ cat, viewAddWeight, setViewAddWeight }) {
   }
   return (
     <div>
-      <form onSubmit={handleWeightSubmit}>
+      <form className="ui form" onSubmit={handleWeightSubmit}>
         <input
           type="text"
           placeholder="latest weight (in pounds)"
@@ -38,7 +39,7 @@ export default function WeightForm({ cat, viewAddWeight, setViewAddWeight }) {
           value={weightEntry}
           onChange={(e) => setWeightEntry(e.target.value)}
         />
-        <button type="submit">Add Weight</button>
+        <button className="primary_button" type="submit">Add Weight</button>
       </form>
     </div>
   );

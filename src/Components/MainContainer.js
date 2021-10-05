@@ -40,6 +40,12 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
           <Logout setUser={setUser} setLoggedIn={setLoggedIn} />
         </Route>
         <Route exact path="/yourpets">
+          <NavBar
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            setUser={setUser}
+            user={user}
+          />
           <YourPets
             loggedIn={loggedIn}
             setLoggedIn={setLoggedIn}
@@ -48,6 +54,12 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
           />
         </Route>
         <Route path="/cats/:id">
+          <NavBar
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            setUser={setUser}
+            user={user}
+          />
           <CatStats user={user} />
         </Route>
         <Route exact path="/catSurvey/1">
@@ -80,6 +92,12 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
           <Signup setUser={setUser} />
         </Route>
         <Route exact path="/new_pet">
+          <NavBar
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            setUser={setUser}
+            user={user}
+          />
           <NewPetForm
             loggedIn={loggedIn}
             setLoggedIn={setLoggedIn}

@@ -7,7 +7,6 @@ export default function WeightRender({cat_id, viewWeightRender, setViewWeightRen
   const [errors, setErrors]=useState([])
   console.log(cat_id)
   useEffect(() => {
-    console.log(cat_id)
     fetch(`/cats/${cat_id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {

@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Button from "@mui/material/Button";
 
 export default function Signup({ setUser }) {
   const [name, setName] = useState("");
@@ -30,7 +29,7 @@ export default function Signup({ setUser }) {
       if (r.ok) {
         r.json().then((user) => {
           setUser(user);
-          // history.push("/feed");
+          history.push("/yourpets");
         });
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -95,7 +94,7 @@ export default function Signup({ setUser }) {
               onChange={(e) => setPassword_confirmation(e.target.value)}
             />
           </div>
-          <Button type="submit" variant="contained">Sign Up</Button>
+          <button className="primary_button" type="submit">Sign Up</button>
         </form>
       </div>
     </div>
