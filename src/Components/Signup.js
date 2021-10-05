@@ -42,6 +42,7 @@ export default function Signup({ setUser }) {
     <div className="standardBackground">
       <br />
       <br />
+      <h2>Signup for Free</h2>
       <div className="standardFlexBox">
         <form className="ui form" onSubmit={handleSubmit}>
           <div className="field">
