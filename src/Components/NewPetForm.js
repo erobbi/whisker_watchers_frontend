@@ -92,7 +92,7 @@ export default function NewPetForm() {
             </select>
           </div>
           <div className="field">
-            <label>Link to cute cat picture</label>
+            <label>Link to Cute Cat Picture</label>
             <input
               type="text"
               placeholder="Cat image URL"
@@ -103,10 +103,10 @@ export default function NewPetForm() {
 
           </div>
           <div className="field">
-            <label>Calories per day</label>
+            <label>Current Estimated Calories per Day</label>
             <input
               type="text"
-              placeholder="food per day (in cups)"
+              placeholder="calories per day (in kCal)"
               id="food_per_day"
               value={food_per_day}
               onChange={(e) => setFood_per_day(e.target.value)}

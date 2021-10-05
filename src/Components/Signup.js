@@ -45,7 +45,7 @@ export default function Signup({ setUser }) {
       <div className="standardFlexBox">
         <form className="ui form" onSubmit={handleSubmit}>
           <div className="field">
-            <label>Name</label>
+            <label>Human Name</label>
             <input
               type="text"
               placeholder="name"
