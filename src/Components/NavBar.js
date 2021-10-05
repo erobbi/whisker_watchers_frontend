@@ -44,7 +44,9 @@ export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
             </div>
             <div classNam="navItem">
               <NavLink className="nav" exact to="/user">
-                <a>Welcome, {user.name}</a>
+                <a className="standardFlexBox">
+                  <img className="avatarNav" src={user.avatar_url} />
+                </a>
               </NavLink>
             </div>
           </>
