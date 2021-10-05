@@ -28,8 +28,8 @@ export default function CatRender({ cat, cats, setCats }) {
       <p id={cat.id}>
         <h3>{cat.name}</h3> Age: {cat.age}
       </p>
-      <Link to={`/cats/${cat.id}`}>View Stats</Link>
-      <br />
+      {/* <Link to={`/cats/${cat.id}`}>View Stats</Link> */}
+      {/* <br />
       {viewDeleteConfirmation ? <button id={cat.id} onClick={() => setViewDeleteConfirmation(!viewDeleteConfirmation)}>
        Cancel Delete
       </button> :  <button id={cat.id} onClick={() => setViewDeleteConfirmation(!viewDeleteConfirmation)}>
@@ -53,7 +53,7 @@ export default function CatRender({ cat, cats, setCats }) {
           viewAddWeight={viewAddWeight}
           setViewAddWeight={setViewAddWeight}
         />
-      ) : null}
+      ) : null} */}
     </div>
   );
 }

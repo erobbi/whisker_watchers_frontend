@@ -21,6 +21,7 @@ export default function YourPets({ user }) {
   return (
     <div className="standardBackground">
       <h2 style={{padding: "10px"}}>Your Pets</h2>
+      <p>Click on a pet to view their stats</p>
       {catsFetched ? (
         <div className="catMargins">
         <div className="catFlexBox">

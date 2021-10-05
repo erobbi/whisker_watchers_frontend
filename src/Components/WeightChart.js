@@ -11,7 +11,7 @@ import {
 
 export default function WeightChart({isLoaded, cat, reRender}) {
       const data = [];
-        console.log(reRender)
+        // console.log(reRender)
       if (isLoaded === true) {
         cat.weights.map((entry) => {
           if (entry.weight) {
@@ -33,7 +33,9 @@ export default function WeightChart({isLoaded, cat, reRender}) {
           }}
         >
           <CartesianGrid strokeDasharray="1 1" />
-          <XAxis dataKey="date" />
+          <XAxis interval={100}> 
+            <Label value="Time" angle={0} position="insideBottom" />
+          </XAxis>
           <YAxis>
             <Label value="Weight (lbs)" angle={-90} position="insideLeft" />
           </YAxis>

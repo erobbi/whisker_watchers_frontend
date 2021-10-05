@@ -11,7 +11,8 @@ export default function CatStats() {
   const [isLoaded, setIsLoaded] = useState(false);
   const history = useHistory();
   const [reRender, setReRender] = useState(0)
-
+  const [currentWeight, setCurrentWeight] = useState();
+  
   useEffect(() => {
     fetch(`/cats/${id}`).then((r) => {
       if (r.ok) {
@@ -19,6 +20,7 @@ export default function CatStats() {
           setCat(cat);
           setIsLoaded(true);
           history.push(`/cats/${id}`);
+          setCurrentWeight(cat.weights.at(-1).weight);
         });
       }
     });
@@ -26,19 +28,27 @@ export default function CatStats() {
 
   return (
     <div className="standardBackground">
-        <h2>Cat Stats for {cat.name}</h2>
-        <h3>Current weight: {cat.current_weight} lbs</h3>
-      <div className="catStats">
+      {isLoaded ? (
         <div>
-          <WeightChart isLoaded={isLoaded} cat={cat} reRender={reRender}/>
+          <h2>Cat Stats for {cat.name}</h2>
+          <h3>Current weight: {currentWeight} lbs</h3>
+          <div className="catStats">
+            <div>
+              <WeightChart isLoaded={isLoaded} cat={cat} reRender={reRender} />
+            </div>
+            <div>
+              <WeightRender cat_id={id} />
+              <br />
+              <br />
+              <WeightForm
+                id={id}
+                reRender={reRender}
+                setReRender={setReRender}
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <WeightRender cat_id={id} />
-          <br />
-          <br />
-          <WeightForm id={id} reRender={reRender} setReRender={setReRender} />
-        </div>
-      </div>
+      ) : null}
     </div>
   );
 }

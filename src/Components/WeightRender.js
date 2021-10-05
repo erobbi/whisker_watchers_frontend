@@ -5,14 +5,12 @@ export default function WeightRender({cat_id, viewWeightRender, setViewWeightRen
   const [cat, setCat] = useState([]);
   const [catFetched, setCatFetched] = useState(false);
   const [errors, setErrors]=useState([])
-  console.log(cat_id)
   useEffect(() => {
     fetch(`/cats/${cat_id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setCat(data);
           setCatFetched(true);
-          console.log(data)
         });
       } else {
         res.json().then((err) => setErrors(err.errors))

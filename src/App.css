@@ -177,6 +177,7 @@
 .catFlexBox {
   display: flex;
   justify-content: space-between;
+  flex-flow: wrap;
 }
 
 .calculatorFlexBox {
@@ -520,10 +521,10 @@
 }
 
 .petcard {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 10px;
+  gap: 10px; */
 }
 
 .catStats {
