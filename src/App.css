@@ -163,6 +163,17 @@
   align-content: space-between;
 }
 
+.profileFlexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.profileFlexBox {
+  padding: 20px;
+}
+
 .catFlexBox {
   display: flex;
   justify-content: space-between;
@@ -488,6 +499,7 @@
 
 .avatar {
   width: 200px;
+  border-radius: 10px;
 }
 
 .catAvatar {

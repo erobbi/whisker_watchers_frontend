@@ -114,6 +114,12 @@ export default function MainContainer({ user, setUser, loggedIn, setLoggedIn }) 
           <Footer />
         </Route>
         <Route exact path="/user">
+          <NavBar
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            setUser={setUser}
+            user={user}
+          />
           <MyProfile user={user} setUser={setUser} />
           <Footer />
         </Route>

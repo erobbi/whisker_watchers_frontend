@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import edit_button from '../Images/icons8-edit-24.png'
 
 export default function MyProfile({ user, setUser }) {
   const [showNameUpdater, setShowNameUpdater] = useState(false);
@@ -102,35 +103,56 @@ export default function MyProfile({ user, setUser }) {
   }
 
   return (
-    <div>
+    <div className="standardBackground">
       {user ? (
-        <>
-          <h2>Name: {user.name}</h2>
-          <button onClick={() => setShowNameUpdater(!showNameUpdater)}>
-            Update Name
-          </button>
-          {showNameUpdater ? <NameUpdater /> : null}
-          <h2>Username: {user.username}</h2>
-          <button onClick={() => setShowUsernameUpdater(!showUsernameUpdater)}>
-            Update Username
-          </button>
-          {showUsernameUpdater ? <UsernameUpdater /> : null}
-          <h3>Avatar:</h3>
-          {user.avatar_url ? (
-            <img src={user.avatar_url} alt="avatar" className="avatar" />
-          ) : (
-            <h3>You do not have an avatar.</h3>
-          )}
-          <br />
-          <button onClick={() => setShowAvatarUpdater(!showAvatarUpdater)}>
-            Update Avatar
-          </button>
-          {showAvatarUpdater ? <AvatarUpdater /> : null}
-          <br />
-
-          <h3>You have {user.total_cats} cats.</h3>
-          <h5>Is that really enough?</h5>
-        </>
+        <div className="profileFlexContainer">
+          <div className="profileFlexBox">
+            <div className="standardFlexBox">
+              {showNameUpdater ? (
+                <NameUpdater />
+              ) : (
+                <h2>Welcome, {user.name}</h2>
+              )}
+              <div>
+                <img
+                  src={edit_button}
+                  onClick={() => setShowNameUpdater(!showNameUpdater)}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="profileFlexBox">
+            <div className="standardFlexBox">
+              {showUsernameUpdater ? (
+                <UsernameUpdater />
+              ) : (
+                <h2>Username: {user.username}</h2>
+              )}
+              <div>
+                <img
+                  src={edit_button}
+                  onClick={() => setShowUsernameUpdater(!showUsernameUpdater)}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="profileFlexBox">
+            {user.avatar_url ? (
+              <img src={user.avatar_url} alt="avatar" className="avatar" />
+            ) : (
+              <h3>You do not have an avatar.</h3>
+            )}
+            <br />
+            <button onClick={() => setShowAvatarUpdater(!showAvatarUpdater)}>
+              Update Avatar
+            </button>
+            {showAvatarUpdater ? <AvatarUpdater /> : null}
+          </div>
+          <div className="profileFlexBox">
+            <h3>You have {user.total_cats} cats.</h3>
+            <h5>Is that really enough?</h5>
+          </div>
+        </div>
       ) : null}
     </div>
   );
