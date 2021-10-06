@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import catBCSchart from "../../Images/catBCSchart.jpg";
-import { Link } from 'react-router-dom';
-
+import catBCSchart from "../../Images/catBCSchart.png";
+import { Link } from "react-router-dom";
 
 export default function CatCalculator({
   loggedIn,
@@ -16,8 +15,6 @@ export default function CatCalculator({
   const [isNeutered, setIsNeutered] = useState("");
   const [BCS, setBCS] = useState("");
   const [idealPetWeight, setIdealPetWeight] = useState("");
-
-  const [showBCSChart, setShowBCSChart] = useState(true);
   const [calculatedValues, setCalculatedValues] = useState({});
   const [hasResult, setHasResult] = useState(false);
 
@@ -40,7 +37,6 @@ export default function CatCalculator({
     setIsNeutered("");
     setBCS("");
     setIdealPetWeight("");
-    setShowBCSChart(false);
   }
 
   function handleSubmit(e) {
@@ -68,14 +64,14 @@ export default function CatCalculator({
   function Results() {
     return (
       <div>
-        <h2>Results</h2>
+        <h2>Cat Calculator Results</h2>
         <h3>{calculatedValues[0].message}</h3>
         <h3>{calculatedValues[0].messageCalories}</h3>
-        <h3>Lets get your cat on the right footing</h3>
+        <h3>Let's get your cat on the right footing.</h3>
         <Link to="/signup">
-        <div style={{ padding: "10px" }}>
-          <button className="primary_button">Take Action</button>
-        </div>
+          <div style={{ padding: "10px" }}>
+            <button className="primary_button">Take Action</button>
+          </div>
         </Link>
         <div style={{ padding: "10px" }}>
           <button className="secondary_button_disabled" onClick={handleReset}>
@@ -90,15 +86,15 @@ export default function CatCalculator({
     <div>
       <div className="standardFlexBox">
         <div className="calculatorFlexBox">
-          <h2>Cat Calculator</h2>
 
           {Object.keys(calculatedValues).length > 0 ? (
             <Results />
-          ) : (
-            <div>
+            ) : (
+              <div>
+              <h2>Cat Calculator</h2>
               <form className="ui form" onSubmit={handleSubmit}>
                 <div classname="field">
-                  <label>Current Weight</label>
+                  <label>Question 1: What is your cat's current weight?</label>
                   <input
                     name="CurrentWeight"
                     type="number"
@@ -111,7 +107,8 @@ export default function CatCalculator({
                 </div>
                 <br />
                 <div className="ui form">
-                  <label>Is your cat spayed/neutered? </label>
+                  <label>Question 2: Is your cat spayed/neutered? </label>
+                  <br />
                   <input
                     type="radio"
                     value="true"
@@ -131,18 +128,17 @@ export default function CatCalculator({
 
                 {/* slider here using rc-slider  https://react-component.github.io/slider/?path=/story/rc-slider--handle */}
                 <div className="slider">
-                  <div>Body Condition Score</div>
-                  <button onClick={() => setShowBCSChart(!showBCSChart)}>
-                    Help
-                  </button>
-                  {showBCSChart ? (
-                    <img
-                      className="bcschart"
-                      src={catBCSchart}
-                      alt="cat body condition score chart"
-                      id="bcsChart"
-                    />
-                  ) : null}
+                  <div>
+                    Question 3: What is your cat's Body Condition Score (BCS)?
+                  </div>
+                  <img
+                    className="bcschart"
+                    src={catBCSchart}
+                    alt="cat body condition score chart"
+                    id="bcsChart"
+                  />
+                  <br />
+                  <br />
                   <Slider
                     defaultValue={5}
                     min={1}

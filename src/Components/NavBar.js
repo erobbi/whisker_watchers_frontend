@@ -28,13 +28,13 @@ export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
             <a>Home</a>
           </NavLink>
         </div>
-        <div className="navItem">
-          {loggedIn ? (
+        {loggedIn ? (
+          <div className="navItem">
             <NavLink exact to="/yourpets">
               <a>Your Pets</a>
             </NavLink>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
         <div className="navItem">
           <NavLink exact to="/cat_calculator">
             <a>Cat Calculator</a>
