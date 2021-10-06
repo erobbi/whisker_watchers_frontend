@@ -20,7 +20,6 @@ export default function CatStats() {
           setCat(cat);
           setIsLoaded(true);
           history.push(`/cats/${id}`);
-          setCurrentWeight(cat.weights.at(-1).weight);
         });
       }
     });
@@ -31,7 +30,12 @@ export default function CatStats() {
       {isLoaded ? (
         <div>
           <h2>Cat Stats for {cat.name}</h2>
-          <h3>Current weight: {currentWeight} lbs</h3>
+          <h4>BCS: {cat.bcs}</h4>
+          <h4>Current weight: {cat.currentWeight} lbs</h4>
+          <h4>Goal weight: {cat.goalWeight} lbs</h4>
+          <h4>Current Calories Per Day: {cat.caloriesPerDay} kCal</h4>
+          <h4>Suggested Calories Per Day: {cat.suggestedCaloriesPerDay} kCal</h4>
+
           <div className="catStats">
             <div>
               <WeightChart isLoaded={isLoaded} cat={cat} reRender={reRender} />
