@@ -22,9 +22,7 @@ export default function WeightRender({cat_id, viewWeightRender, setViewWeightRen
     <div>
       {cat ? (
         <div>
-          <div>WeightRender</div>
-          <div>{cat.name}</div>
-          <div>Weights:</div>
+          <h4>Weights:</h4>
           {cat.weights ? (<>{cat.weights.map((entry) => {
             return <WeightEntry entry={entry} />
           })}</>) : null}

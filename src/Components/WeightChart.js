@@ -14,15 +14,19 @@ export default function WeightChart({isLoaded, cat, reRender}) {
         // console.log(reRender)
       if (isLoaded === true) {
         cat.weights.map((entry) => {
+          let i=1;
           if (entry.weight) {
-            data.push({ date: entry.created_at, weight: entry.weight });
+            data.push({ date: i, weight: entry.weight });
+            i+=1
           }
         });
+        // let maxweight=cat.weights.max()
+        // console.log(maxweight)
       }
     return (
       <div>
         <AreaChart
-          width={500}
+          width={600}
           height={400}
           data={data}
           margin={{

@@ -20,19 +20,30 @@ export default function YourPets({ user }) {
 
   return (
     <div className="standardBackground">
-      <h2 style={{padding: "10px"}}>Your Pets</h2>
-      <p>Click on a pet to view their stats</p>
+      <h2 style={{ padding: "10px" }}>Your Pets</h2>
       {catsFetched ? (
         <div className="catMargins">
-        <div className="catFlexBox">
-          {cats.map((cat) => {
-            return (
-              <CatRender key={cat.id} cat={cat} cats={cats} setCats={setCats} />
-            );
-          })}
+          {Object.keys(cats).length > 0 ? (
+            <p>Click on a cat to view their stats.</p>
+          ) : (
+            <p>You have not added any cats.</p>
+          )}
+
+          <div className="catFlexBox">
+            {cats.map((cat) => {
+              return (
+                <CatRender
+                  key={cat.id}
+                  cat={cat}
+                  cats={cats}
+                  setCats={setCats}
+                />
+              );
+            })}
+          </div>
         </div>
-        </div>
-      ) : (<div>You have not entered any pets.</div>
+      ) : (
+        <div>You have not entered any pets.</div>
       )}
       <br />
       <br />

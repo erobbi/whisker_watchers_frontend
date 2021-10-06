@@ -1,17 +1,34 @@
 import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
 export default function NewPetForm() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [cat_url, setCat_url] = useState("");
-  const [food_per_day, setFood_per_day] = useState("");
+  const [caloriesPerDay, setCaloriesPerDay] = useState("");
   const ages = Array.from(Array(31).keys());
+  const [isNeutered, setIsNeutered] = useState("");
+
   ages.shift();
   const [errors, setErrors] = useState([]);
   const [weight, setWeight] = useState("");
+  const [bcs, setBcs] = useState("");
   const history = useHistory();
+
+  const BCSMarks = {
+    1: "1",
+    2: "2",
+    3: "3",
+    4: "4",
+    5: "5",
+    6: "6",
+    7: "7",
+    8: "8",
+    9: "9",
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,10 +41,11 @@ export default function NewPetForm() {
         name,
         age,
         cat_url,
-        food_per_day,
+        caloriesPerDay,
+        bcs,
+        isNeutered,
       }),
-    }).
-    then((r) => {
+    }).then((r) => {
       if (r.ok) {
         r.json().then((cat) => {
           history.push("/weight_tracker");
@@ -44,11 +62,10 @@ export default function NewPetForm() {
             }),
           }).then((res) => {
             if (res.ok) {
-              res.json().then(
-                (data) => {
-                  console.log(data)
-                  history.push("/yourpets")
-                });
+              res.json().then((data) => {
+                console.log(data);
+                history.push("/yourpets");
+              });
             } else {
               res.json().then((err) => setErrors(err.errors));
             }
@@ -100,19 +117,17 @@ export default function NewPetForm() {
               value={cat_url}
               onChange={(e) => setCat_url(e.target.value)}
             />
-
           </div>
           <div className="field">
             <label>Current Estimated Calories per Day</label>
             <input
               type="text"
               placeholder="calories per day (in kCal)"
-              id="food_per_day"
-              value={food_per_day}
-              onChange={(e) => setFood_per_day(e.target.value)}
+              id="caloriesPerDay"
+              value={caloriesPerDay}
+              onChange={(e) => setCaloriesPerDay(e.target.value)}
             />
           </div>
-
           <div className="field">
             <label>Current Weight</label>
             <input
@@ -123,8 +138,42 @@ export default function NewPetForm() {
               onChange={(e) => setWeight(e.target.value)}
             />
           </div>
-          <button className="primary_button" type="submit">Add Pet</button>
+          <div className="ui form">
+            <label><b>Is your cat spayed/neutered?</b></label>
+            <br/>
+            <input
+              type="radio"
+              value="true"
+              name="neutered"
+              onChange={(e) => setIsNeutered(true)}
+            />
+            <label for="true">Yes</label>
+            <input
+              type="radio"
+              value="false"
+              name="neutered"
+              onChange={(e) => setIsNeutered(false)}
+            />
+            <label for="false">No</label>
+          </div>
+          <br/>
 
+          <div className="field">
+            <label>Body Condition Score (BCS)</label>
+            <Slider
+              defaultValue={5}
+              min={1}
+              max={9}
+              step={0.5}
+              onChange={(e) => setBcs(e)}
+              marks={BCSMarks}
+              style={{ width: "100%" }}
+            />
+            <br />
+          </div>
+          <button className="primary_button" type="submit">
+            Add Pet
+          </button>
         </form>
       </div>
     </div>
