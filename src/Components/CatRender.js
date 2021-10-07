@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import WeightRender from "./WeightRender";
 import WeightForm from "./WeightForm";
-import noAvatar from "../Images/noAvatar.png";
+import noAvatar from "../Images/anonymousCat.jpg";
 
 export default function CatRender({ cat, cats, setCats }) {
   const [viewWeightRender, setViewWeightRender] = useState(false);

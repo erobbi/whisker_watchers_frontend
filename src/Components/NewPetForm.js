@@ -15,7 +15,7 @@ export default function NewPetForm() {
   ages.shift();
   const [errors, setErrors] = useState([]);
   const [weight, setWeight] = useState("");
-  const [bcs, setBcs] = useState("");
+  const [bcs, setBcs] = useState(5);
   const history = useHistory();
 
   const BCSMarks = {

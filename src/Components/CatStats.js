@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import WeightChart from "./WeightChart";
 import WeightForm from "./WeightForm";
 import WeightRender from "./WeightRender";
-import noAvatar from "../Images/noAvatar.png";
+import noAvatar from "../Images/anonymousCat.jpg";
 
 
 export default function CatStats() {
