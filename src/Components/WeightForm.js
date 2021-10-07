@@ -39,7 +39,9 @@ export default function WeightForm({ id, reRender, setReRender }) {
           value={weightEntry}
           onChange={(e) => setWeightEntry(e.target.value)}
         />
-        <button className="primary_button" type="submit">Add Weight</button>
+        <div className="standardMargin">
+          <button className="primary_button" type="submit">Add Weight</button>
+        </div>
       </form>
     </div>
   );

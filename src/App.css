@@ -178,6 +178,13 @@
   align-content: space-between;
 }
 
+.profileFlexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+}
+
 .profileFlexBox {
   padding: 20px;
 }
@@ -296,6 +303,15 @@
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
+}
+
+.catStatsFlexContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 10vh;
 }
 
 .survey_content {
@@ -534,10 +550,11 @@
 }
 
 .petcard {
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column; */
   margin: 10px;
+}
+
+.standardMargin {
+  margin: 10px
 }
 
 .catStats {

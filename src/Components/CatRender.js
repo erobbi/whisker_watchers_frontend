@@ -2,42 +2,29 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import WeightRender from "./WeightRender";
 import WeightForm from "./WeightForm";
+import noAvatar from "../Images/noAvatar.png";
 
 export default function CatRender({ cat, cats, setCats }) {
   const [viewWeightRender, setViewWeightRender] = useState(false);
   const [viewAddWeight, setViewAddWeight] = useState(false);
-  let catId = useParams();
   const [viewDeleteConfirmation, setViewDeleteConfirmation] = useState(false);
-
-
-  function handleDeleteClick(id) {
-    fetch(`/cats/${id}`, {
-      method: "DELETE",
-    });
-    const remainingCats = [...cats].filter((cat) => cat.id !== id);
-    setCats(remainingCats);
-  }
-
-  
+  let catId = useParams();
 
   return (
     <div className="petcard">
       <Link to={`/cats/${cat.id}`}>
-        <img id={cat.id} className="catAvatar" src={cat.cat_url} />
+        {cat.cat_url.length > 3 ? (
+            <img id={cat.id} className="catAvatar" src={cat.cat_url} />
+        ) : (
+            <img id={cat.id} className="catAvatar" src={noAvatar} />
+        )}
       </Link>
       <p id={cat.id}>
         <h3>{cat.name}</h3> Age: {cat.age}
       </p>
-      {/* <Link to={`/cats/${cat.id}`}>View Stats</Link> */}
-      {/* <br />
-      {viewDeleteConfirmation ? <button id={cat.id} onClick={() => setViewDeleteConfirmation(!viewDeleteConfirmation)}>
-       Cancel Delete
-      </button> :  <button id={cat.id} onClick={() => setViewDeleteConfirmation(!viewDeleteConfirmation)}>
-        Delete
-      </button>}
-      {viewDeleteConfirmation ? <button id={cat.id} onClick={() => handleDeleteClick(cat.id)}>
-        Confirm Deletion
-      </button> : null }
+      <Link to={`/cats/${cat.id}`}>View Stats</Link>
+      <br />
+
       <br />
       <button
         id={cat.id}
@@ -53,7 +40,7 @@ export default function CatRender({ cat, cats, setCats }) {
           viewAddWeight={viewAddWeight}
           setViewAddWeight={setViewAddWeight}
         />
-      ) : null} */}
+      ) : null}
     </div>
   );
 }

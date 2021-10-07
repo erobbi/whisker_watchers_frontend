@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AreaChart,
   Area,
@@ -7,14 +7,17 @@ import {
   Legend,
   XAxis,
   YAxis,
+  ReferenceLine,
   Tooltip,
 } from "recharts";
 
 export default function WeightChart({ isLoaded, cat, reRender }) {
   const data = [];
   const goalData = [];
+  let refLineX = 1000;
   // console.log(reRender)
-  if (isLoaded === true) {
+  console.log(cat.weights)
+  if (isLoaded === true && cat.weights.length > 0) {
     cat.weights.map((entry) => {
       if (entry.weight) {
         data.push({
@@ -24,7 +27,7 @@ export default function WeightChart({ isLoaded, cat, reRender }) {
       }
     });
     let popped = data.pop()
-    console.log(popped)
+    refLineX= popped.date;
     data.push({
       date: popped.date,
       historicalWeight: popped.historicalWeight,
@@ -34,7 +37,8 @@ export default function WeightChart({ isLoaded, cat, reRender }) {
       date: data[data.length - 1].date + 1,
       goalWeight: cat.goalWeight,
     });
-    }
+  }
+
   return (
     <div>
       <AreaChart
@@ -72,7 +76,9 @@ export default function WeightChart({ isLoaded, cat, reRender }) {
           stroke="#f08f10"
           fill="#f3b562"
           strokeWidth="2"
+          label={{ fill: "black", fontSize: 20 }}
         />
+        <ReferenceLine x={refLineX} stroke="black" label="Future" />
       </AreaChart>
     </div>
   );

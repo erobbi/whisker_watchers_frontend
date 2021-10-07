@@ -43,6 +43,7 @@ export default function NewPetForm() {
         cat_url,
         caloriesPerDay,
         bcs,
+        weight,
         isNeutered,
       }),
     }).then((r) => {
