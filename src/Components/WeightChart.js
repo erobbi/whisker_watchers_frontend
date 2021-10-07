@@ -20,8 +20,6 @@ export default function WeightChart({isLoaded, cat, reRender}) {
             i+=1
           }
         });
-        // let maxweight=cat.weights.max()
-        // console.log(maxweight)
       }
     return (
       <div>
@@ -37,18 +35,20 @@ export default function WeightChart({isLoaded, cat, reRender}) {
           }}
         >
           <CartesianGrid strokeDasharray="1 1" />
-          <XAxis interval={100}> 
+          <XAxis interval={100}>
             <Label value="Time" angle={0} position="insideBottom" />
           </XAxis>
           <YAxis>
             <Label value="Weight (lbs)" angle={-90} position="insideLeft" />
           </YAxis>
+          <Label value="Weight (lbs)" angle={-90} position="top" />
+
           <Tooltip />
           <Area
             type="monotone"
             dataKey="weight"
             stroke="#8884d8"
-            fill="#8884d8"
+            fill="#f06060"
           />
         </AreaChart>
       </div>

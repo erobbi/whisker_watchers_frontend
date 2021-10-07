@@ -66,7 +66,7 @@ export default function CatCalculator({
       <div>
         <h2>Cat Calculator Results</h2>
         <h3>{calculatedValues[0].message}</h3>
-        <h3>{calculatedValues[0].messageCalories}</h3>
+        <h3>{calculatedValues[0].messageCalories}</h3>``
         <h3>Let's get your cat on the right footing.</h3>
         <Link to="/signup">
           <div style={{ padding: "10px" }}>

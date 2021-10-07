@@ -5,6 +5,7 @@
   background-color: f8f6e9;
   color: #f3b562;
   color: #f06060;
+  color: #43e658;
 }
 
 .App {
@@ -161,6 +162,13 @@
   flex-direction: rows;
   justify-content: center;
   align-content: space-between;
+}
+
+.textFlexContainer {
+  display: flex;
+  flex-direction: rows;
+  justify-content: space-between;
+  align-content: center;
 }
 
 .profileFlexContainer {
@@ -515,6 +523,11 @@
   border-radius: 10px;
 }
 
+.catAvatarSmall {
+  width: 100px;
+  border-radius: 10px;
+}
+
 .flexCenter {
   display: flex;
   justify-content: center;
@@ -530,6 +543,17 @@
 .catStats {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.catStatsBox {
+  width: 23vw;
+  margin: 10px 30px;
+}
+
+.catStatsText {
+    font-size: 20px;
+    text-align: left;
 }
 
 .catMargins {
