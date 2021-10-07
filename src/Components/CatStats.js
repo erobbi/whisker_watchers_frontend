@@ -36,25 +36,32 @@ export default function CatStats() {
           <div className="catStats">
             <div className="catStatsBox">
               <div className="textFlexContainer">
-                <p className="catStatsText">BCS:</p>
-                <p>{cat.bcs}</p>
+                <p className="catStatsText">Goal Weight: </p>
+                <p className="catStatsText">{cat.goalWeight} lbs</p>
               </div>
               <div className="textFlexContainer">
-                <p className="catStatsText">Current weight: </p>
-                <p>{cat.currentWeight} lbs</p>
+                <p className="catStatsText">Current Weight: </p>
+                <p className="catStatsText">{cat.currentWeight} lbs</p>
               </div>
               <div className="textFlexContainer">
-                <p className="catStatsText">Goal weight: </p>
-                <p>{cat.goalWeight} lbs</p>
+                <p className="catStatsText">Body Condition Score:</p>
+                <p className="catStatsText">{cat.bcs}</p>
               </div>
               <div className="textFlexContainer">
-                <p className="catStatsText">Current Calories Per Day:</p>
-                <p>{cat.caloriesPerDay} Cal</p>
+                <p className="catStatsText">Current Calories/Day:</p>
+                <p className="catStatsText">{cat.caloriesPerDay} Cal</p>
               </div>
               <div className="textFlexContainer">
-                <p className="catStatsText">Suggested Calories Per Day:</p>
-                <p> {cat.suggestedCaloriesPerDay} Cal</p>
+                <p className="catStatsText">Suggested Calories/Day:</p>
+                <p className="catStatsText">
+                  {cat.suggestedCaloriesPerDay} Cal
+                </p>
               </div>
+              <WeightForm
+                id={id}
+                reRender={reRender}
+                setReRender={setReRender}
+              />
             </div>
             <div className="catStatsBox">
               <WeightChart isLoaded={isLoaded} cat={cat} reRender={reRender} />

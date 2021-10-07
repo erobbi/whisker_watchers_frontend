@@ -55,21 +55,23 @@ export default function WeightChart({ isLoaded, cat, reRender }) {
         <YAxis>
           <Label value="Weight (lbs)" angle={-90} position="insideLeft" />
         </YAxis>
-        <Label value="Weight (lbs)" angle={-90} position="top" />
+        <Label value="Weight (lbs)" angle={-90} position="top" height={40} />
         <Legend verticalAlign="bottom" height={36} />
 
         <Tooltip />
         <Area
           // type="monotone"
           dataKey="historicalWeight"
-          stroke="#f06060"
-          fill="#f06060"
+          stroke="#afafaf"
+          fill="#e7e7e7"
+          strokeWidth="2"
         />
         <Area
           type="monotone"
           dataKey="goalWeight"
-          stroke="#43e658"
-          fill="#43e658"
+          stroke="#f08f10"
+          fill="#f3b562"
+          strokeWidth="2"
         />
       </AreaChart>
     </div>
