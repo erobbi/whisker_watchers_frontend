@@ -1,56 +1,77 @@
-import React from 'react'
+import React from "react";
 import {
   AreaChart,
   Area,
   Label,
   CartesianGrid,
+  Legend,
   XAxis,
   YAxis,
   Tooltip,
 } from "recharts";
 
-export default function WeightChart({isLoaded, cat, reRender}) {
-      const data = [];
-        // console.log(reRender)
-      if (isLoaded === true) {
-        cat.weights.map((entry) => {
-          let i=1;
-          if (entry.weight) {
-            data.push({ date: i, weight: entry.weight });
-            i+=1
-          }
+export default function WeightChart({ isLoaded, cat, reRender }) {
+  const data = [];
+  const goalData = [];
+  // console.log(reRender)
+  if (isLoaded === true) {
+    cat.weights.map((entry) => {
+      if (entry.weight) {
+        data.push({
+          date: cat.weights.indexOf(entry),
+          historicalWeight: entry.weight,
         });
       }
-    return (
-      <div>
-        <AreaChart
-          width={600}
-          height={400}
-          data={data}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
-          }}
-        >
-          <CartesianGrid strokeDasharray="1 1" />
-          <XAxis interval={100}>
-            <Label value="Time" angle={0} position="insideBottom" />
-          </XAxis>
-          <YAxis>
-            <Label value="Weight (lbs)" angle={-90} position="insideLeft" />
-          </YAxis>
-          <Label value="Weight (lbs)" angle={-90} position="top" />
+    });
+    let popped = data.pop()
+    console.log(popped)
+    data.push({
+      date: popped.date,
+      historicalWeight: popped.historicalWeight,
+      goalWeight: popped.historicalWeight,
+    });
+    data.push({
+      date: data[data.length - 1].date + 1,
+      goalWeight: cat.goalWeight,
+    });
+    }
+  return (
+    <div>
+      <AreaChart
+        width={600}
+        height={400}
+        data={data}
+        margin={{
+          top: 10,
+          right: 30,
+          left: 0,
+          bottom: 0,
+        }}
+      >
+        <CartesianGrid strokeDasharray="1 1" />
+        <XAxis interval={100}>
+          <Label value="Time" angle={0} position="insideBottom" />
+        </XAxis>
+        <YAxis>
+          <Label value="Weight (lbs)" angle={-90} position="insideLeft" />
+        </YAxis>
+        <Label value="Weight (lbs)" angle={-90} position="top" />
+        <Legend verticalAlign="bottom" height={36} />
 
-          <Tooltip />
-          <Area
-            type="monotone"
-            dataKey="weight"
-            stroke="#8884d8"
-            fill="#f06060"
-          />
-        </AreaChart>
-      </div>
-    );
+        <Tooltip />
+        <Area
+          // type="monotone"
+          dataKey="historicalWeight"
+          stroke="#f06060"
+          fill="#f06060"
+        />
+        <Area
+          type="monotone"
+          dataKey="goalWeight"
+          stroke="#43e658"
+          fill="#43e658"
+        />
+      </AreaChart>
+    </div>
+  );
 }
