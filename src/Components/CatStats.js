@@ -5,7 +5,6 @@ import WeightForm from "./WeightForm";
 import WeightRender from "./WeightRender";
 import noAvatar from "../Images/anonymousCat.jpg";
 
-
 export default function CatStats() {
   const { id } = useParams();
   const [cat, setCat] = useState({});
@@ -100,6 +99,9 @@ export default function CatStats() {
               />
             </div>
             <div className="standardMargin">
+              <WeightRender cat_id={id} />
+            </div>
+            <div className="standardMargin">
               {viewDeleteConfirmation ? (
                 <button
                   id={cat.id}
@@ -126,12 +128,7 @@ export default function CatStats() {
               ) : null}
             </div>
           </div>
-          {/* <div>
-            <WeightRender cat_id={id} />
-            <br />
-            <br />
-            <WeightForm id={id} reRender={reRender} setReRender={setReRender} />
-          </div> */}
+          <div></div>
         </div>
       ) : null}
     </div>

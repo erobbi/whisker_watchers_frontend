@@ -78,7 +78,7 @@ export default function WeightChart({ isLoaded, cat, reRender }) {
           strokeWidth="2"
           label={{ fill: "black", fontSize: 20 }}
         />
-        <ReferenceLine x={refLineX} stroke="black" label="Future" />
+        <ReferenceLine x={refLineX} stroke="black" label="<----- Past       Future -->" />
       </AreaChart>
     </div>
   );
