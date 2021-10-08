@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import catBCSchart from "../Images/catBCSchart.png";
 
 export default function NewPetForm() {
   const [name, setName] = useState("");
@@ -81,65 +82,73 @@ export default function NewPetForm() {
       <h2>New Pet Form</h2>
       <div className="standardFlexBox">
         <form className="ui form" onSubmit={handleSubmit}>
-          <div className="field">
-            <label>Pet Name</label>
-            <input
-              type="text"
-              placeholder="pet name"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
+          <div className="standardFlexBox">
+            <div style={{ width: "10vw" }}>
+              <div className="field">
+                <label>Pet Name</label>
+                <input
+                  type="text"
+                  placeholder="pet name"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
 
-          <div className="field">
-            <label>Age</label>
-            <select value={age} onChange={(e) => setAge(e.target.value)}>
-              <option key={0} value={"Age"}>
-                Age
-              </option>
-              {ages.map((age) => {
-                return (
-                  <option key={age} value={age}>
-                    {age}
+              <div className="field">
+                <label>Age</label>
+                <select value={age} onChange={(e) => setAge(e.target.value)}>
+                  <option key={0} value={"Age"}>
+                    Age
                   </option>
-                );
-              })}
-            </select>
+                  {ages.map((age) => {
+                    return (
+                      <option key={age} value={age}>
+                        {age}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <div className="field">
+                <label>Link to Cute Cat Picture</label>
+                <input
+                  type="text"
+                  placeholder="Cat image URL"
+                  id="cat_url"
+                  value={cat_url}
+                  onChange={(e) => setCat_url(e.target.value)}
+                />
+              </div>
+              <div className="field">
+                <label>Current Estimated Calories/Day</label>
+                <input
+                  type="text"
+                  placeholder="calories per day (in Cal)"
+                  id="caloriesPerDay"
+                  value={caloriesPerDay}
+                  onChange={(e) => setCaloriesPerDay(e.target.value)}
+                />
+              </div>
+              <div className="field">
+                <label>Current Weight</label>
+                <input
+                  type="text"
+                  placeholder="Weight (in lbs)"
+                  id="weight"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                />
+              </div>
+            </div>
           </div>
-          <div className="field">
-            <label>Link to Cute Cat Picture</label>
-            <input
-              type="text"
-              placeholder="Cat image URL"
-              id="cat_url"
-              value={cat_url}
-              onChange={(e) => setCat_url(e.target.value)}
-            />
-          </div>
-          <div className="field">
-            <label>Current Estimated Calories per Day</label>
-            <input
-              type="text"
-              placeholder="calories per day (in kCal)"
-              id="caloriesPerDay"
-              value={caloriesPerDay}
-              onChange={(e) => setCaloriesPerDay(e.target.value)}
-            />
-          </div>
-          <div className="field">
-            <label>Current Weight</label>
-            <input
-              type="text"
-              placeholder="Weight (in lbs)"
-              id="weight"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-            />
-          </div>
+          <br />
+
           <div className="ui form">
-            <label><b>Is your cat spayed/neutered?</b></label>
-            <br/>
+            <label>
+              <b>Is your cat spayed/neutered?</b>
+            </label>
+            <br />
             <input
               type="radio"
               value="true"
@@ -155,10 +164,15 @@ export default function NewPetForm() {
             />
             <label for="false">No</label>
           </div>
-          <br/>
-
+          <br />
           <div className="field">
             <label>Body Condition Score (BCS)</label>
+            <img
+              className="bcschart"
+              src={catBCSchart}
+              alt="cat body condition score chart"
+              id="bcsChart"
+            />
             <Slider
               defaultValue={5}
               min={1}

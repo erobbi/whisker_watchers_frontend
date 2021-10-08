@@ -23,13 +23,9 @@ export default function CatStats() {
   const [hasWeights, setHasWeights] = useState(false);
 
   const [open, setOpen] = useState(false);
-    const handleClickOpen = () => {
-      setOpen(!open);
-    };
-
-    const handleClose = () => {
-      setOpen(false);
-    };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     fetch(`/cats/${id}`).then((r) => {
