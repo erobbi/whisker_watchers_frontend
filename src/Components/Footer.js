@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="logo">Whisker Watchers</div>
           </div>
           <div className="footer_column_each">
-            <div>Developed by Eli Robbins © 2021</div>
+            <h3>Developed by Eli Robbins © 2021</h3>
           </div>
           <div className="footer_column_each">
             <Link to="/potatoesForever">
