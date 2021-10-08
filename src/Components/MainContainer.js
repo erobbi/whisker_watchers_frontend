@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Error from "./Error";
 import Login from "./Login";
 import Logout from "./Logout";
@@ -24,6 +24,7 @@ export default function MainContainer({
   loggedIn,
   setLoggedIn,
 }) {
+
   return (
     <div>
       <Switch>
@@ -110,7 +111,9 @@ export default function MainContainer({
             setUser={setUser}
             user={user}
           />
-          <Signup setUser={setUser} />
+          <Signup
+            setUser={setUser}
+          />
           <Footer />
         </Route>
         <Route exact path="/new_pet">

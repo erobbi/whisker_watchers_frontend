@@ -50,7 +50,6 @@ export default function NewPetForm() {
       if (r.ok) {
         r.json().then((cat) => {
           history.push("/weight_tracker");
-          console.log(cat);
           const cat_id = cat.id;
           fetch("/weights", {
             method: "POST",
@@ -64,7 +63,6 @@ export default function NewPetForm() {
           }).then((res) => {
             if (res.ok) {
               res.json().then((data) => {
-                console.log(data);
                 history.push("/yourpets");
               });
             } else {

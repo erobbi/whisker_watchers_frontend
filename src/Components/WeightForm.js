@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function WeightForm({ id, reRender, setReRender }) {
+export default function WeightForm({ id }) {
   const [weightEntry, setWeightEntry] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -19,10 +19,7 @@ export default function WeightForm({ id, reRender, setReRender }) {
     }).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          console.log(data);
           setWeightEntry("");
-          setReRender(() => {reRender = reRender+1});
-          console.log(reRender)
         });
       } else {
         res.json().then((err) => setErrors(err.errors));

@@ -26,12 +26,12 @@ export default function CatSurvey1() {
           <div className="survey_footer">
             <div className="survey_button_box">
               <div className="survey_button_box_inner">
-                {/* <Link to="/catsurvey/2">
-                  <button className="primary_button">Next</button>
-                </Link>{" "} */}
-                <Link to="/catsurveyalt/">
+                <Link to="/catsurvey/2">
                   <button className="primary_button">Next</button>
                 </Link>
+                {/* <Link to="/catsurveyalt/">
+                  <button className="primary_button">Next</button>
+                </Link> */}
                 <Link to="/signup">
                   <a class="skip_survey_button">I'm ready to sign up</a>
                 </Link>

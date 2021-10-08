@@ -10,7 +10,6 @@ export default function CatStats() {
   const [cat, setCat] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
   const history = useHistory();
-  const [reRender, setReRender] = useState(0);
   const [currentWeight, setCurrentWeight] = useState();
   const [viewWeightRender, setViewWeightRender] = useState(false);
   const [viewAddWeight, setViewAddWeight] = useState(false);
@@ -83,7 +82,6 @@ export default function CatStats() {
                 <WeightChart
                   isLoaded={isLoaded}
                   cat={cat}
-                  reRender={reRender}
                 />
               </div>
             </div>
@@ -94,8 +92,6 @@ export default function CatStats() {
             <div className="standardMargin">
               <WeightForm
                 id={id}
-                reRender={reRender}
-                setReRender={setReRender}
               />
             </div>
             <div className="standardMargin">

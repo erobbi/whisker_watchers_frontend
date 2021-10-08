@@ -11,12 +11,10 @@ import {
   Tooltip,
 } from "recharts";
 
-export default function WeightChart({ isLoaded, cat, reRender }) {
+export default function WeightChart({ isLoaded, cat }) {
   const data = [];
   const goalData = [];
   let refLineX = 1000;
-  // console.log(reRender)
-  console.log(cat.weights)
   if (isLoaded === true && cat.weights.length > 0) {
     cat.weights.map((entry) => {
       if (entry.weight) {

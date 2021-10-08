@@ -6,8 +6,6 @@ import edit_button from "../Images/icons8-edit-24.png";
 export default function WeightEntry({ entry }) {
   const [viewUpdateWeight, setViewUpdateWeight] = useState(false);
   const [weight, setWeight] = useState(entry.weight);
-  let today = new Date();
-  console.log(entry)
   return (
     <div>
       {viewUpdateWeight ? (

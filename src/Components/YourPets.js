@@ -12,7 +12,6 @@ export default function YourPets({ user }) {
         res.json().then((cats) => {
           setCats(cats);
           setCatsFetched(true);
-          console.log(cats);
         });
       }
     });

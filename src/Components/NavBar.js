@@ -4,13 +4,11 @@ import { Link, NavLink, useHistory } from "react-router-dom";
 
 export default function NavBar({ loggedIn, setLoggedIn, setUser, user }) {
   const history = useHistory();
-  const [reRender, setReRender] = useState(0);
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser({});
-        setReRender(reRender + 1);
         setLoggedIn(false);
         history.push("/");
       }
