@@ -119,6 +119,7 @@ export default function CatStats() {
                 </button>
               ) : (
                 <button
+                  className="secondary_button_disabled"
                   id={cat.id}
                   onClick={() =>
                     // setViewDeleteConfirmation(!viewDeleteConfirmation)
@@ -148,17 +149,19 @@ export default function CatStats() {
           <DialogTitle id="alert-dialog-title">Are You Sure?</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Do you really want to delete {cat.name}? This
-              process cannot be undone.
+              Do you really want to delete {cat.name}? This process cannot be
+              undone.
             </DialogContentText>
           </DialogContent>
           <DialogActions>
             <button
+              className="secondary_button_disabled"
               onClick={() => setOpen(false)}
             >
               Cancel
             </button>
             <button
+              className="primary_button"
               onClick={() => handleDeleteClick(cat.id)}
             >
               Delete

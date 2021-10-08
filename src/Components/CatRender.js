@@ -22,10 +22,6 @@ export default function CatRender({ cat, cats, setCats }) {
       <p id={cat.id}>
         <h3>{cat.name}</h3> Age: {cat.age}
       </p>
-      <Link to={`/cats/${cat.id}`}>View Stats</Link>
-      <br />
-
-      <br />
       <button
         id={cat.id}
         onClick={() => {

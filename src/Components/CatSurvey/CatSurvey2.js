@@ -53,52 +53,49 @@ export default function CatSurvey2() {
       });
   }
 
-    function Results() {
-      return (
-        <div>
-          <h2>Cat Calculator Results</h2>
-          <h3>{calculatedValues[0].message}</h3>
-          <h3>{calculatedValues[0].messageCalories}</h3>
-          <h3>Let's get your cat on the right footing.</h3>
-          <Link to="/signup">
-            <div style={{ padding: "10px" }}>
-              <button className="primary_button">Take Action</button>
-            </div>
-          </Link>
+  function Results() {
+    return (
+      <div>
+        <h2>Cat Calculator Results</h2>
+        <h3>{calculatedValues[0].message}</h3>
+        <h3>{calculatedValues[0].messageCalories}</h3>
+        <h3>Let's get your cat on the right footing.</h3>
+        <Link to="/signup">
           <div style={{ padding: "10px" }}>
-            <Link to='/catsurvey/1'>
-            <button className="secondary_button_disabled">
-              Try Again
-            </button>
-            </Link>
+            <button className="primary_button">Take Action</button>
           </div>
+        </Link>
+        <div style={{ padding: "10px" }}>
+          <Link to="/catsurvey/1">
+            <button className="secondary_button_disabled">Try Again</button>
+          </Link>
         </div>
-      );
-    }
+      </div>
+    );
+  }
   return (
     <div>
       <div className="lightOrangeBackground">
         <div className="survey2">
           <div className="surveyNav">
-        {Object.keys(calculatedValues).length > 0 ? 
-            null : (
+            {Object.keys(calculatedValues).length > 0 ? null : (
               <>
-            {pageNum > 1 ? (
-              <button
-                onClick={() => setPageNum(pageNum - 1)}
-                className="secondary_button_disabled"
-              >
-                Back
-              </button>
-            ) : (
-              <Link to="/catsurvey/1">
-                <button className="secondary_button_disabled">Back</button>
-              </Link>
+                {pageNum > 1 ? (
+                  <button
+                    onClick={() => setPageNum(pageNum - 1)}
+                    className="secondary_button_disabled"
+                  >
+                    Back
+                  </button>
+                ) : (
+                  <Link to="/catsurvey/1">
+                    <button className="secondary_button_disabled">Back</button>
+                  </Link>
+                )}
+                <div className="questionNum">Question {pageNum} of 3</div>
+              </>
             )}
-            <div className="questionNum">Question {pageNum} of 3</div>
-          </>
-            )}
-            </div>
+          </div>
           {Object.keys(calculatedValues).length > 0 ? (
             <Results />
           ) : (
@@ -108,8 +105,8 @@ export default function CatSurvey2() {
                   <div claName="questionBox">
                     <span class="questions">Is your cat spayed/neutered?</span>
                   </div>
-                  <div classname="optionsFlexContainerasfd">
-                    <div classname="optionsFlexContainer">
+                  <div classname="standardFlexBox">
+                    <div>
                       <input
                         id="1"
                         type="radio"
