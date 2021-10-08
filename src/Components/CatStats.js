@@ -5,6 +5,12 @@ import WeightForm from "./WeightForm";
 import WeightRender from "./WeightRender";
 import noAvatar from "../Images/anonymousCat.jpg";
 
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
 export default function CatStats() {
   const { id } = useParams();
   const [cat, setCat] = useState({});
@@ -15,6 +21,15 @@ export default function CatStats() {
   const [viewAddWeight, setViewAddWeight] = useState(false);
   const [viewDeleteConfirmation, setViewDeleteConfirmation] = useState(false);
   const [hasWeights, setHasWeights] = useState(false);
+
+  const [open, setOpen] = useState(false);
+    const handleClickOpen = () => {
+      setOpen(!open);
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
 
   useEffect(() => {
     fetch(`/cats/${id}`).then((r) => {
@@ -79,10 +94,7 @@ export default function CatStats() {
                 </div>
               </div>
               <div className="catStatsBox">
-                <WeightChart
-                  isLoaded={isLoaded}
-                  cat={cat}
-                />
+                <WeightChart isLoaded={isLoaded} cat={cat} />
               </div>
             </div>
           ) : (
@@ -90,9 +102,7 @@ export default function CatStats() {
           )}
           <div className="catStatsFlexContainer">
             <div className="standardMargin">
-              <WeightForm
-                id={id}
-              />
+              <WeightForm id={id} />
             </div>
             <div className="standardMargin">
               <WeightRender cat_id={id} />
@@ -111,7 +121,8 @@ export default function CatStats() {
                 <button
                   id={cat.id}
                   onClick={() =>
-                    setViewDeleteConfirmation(!viewDeleteConfirmation)
+                    // setViewDeleteConfirmation(!viewDeleteConfirmation)
+                    setOpen(!open)
                   }
                 >
                   Delete Cat
@@ -126,6 +137,34 @@ export default function CatStats() {
           </div>
           <div></div>
         </div>
+      ) : null}
+      {open ? (
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">Are You Sure?</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Do you really want to delete {cat.name}? This
+              process cannot be undone.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <button
+              onClick={() => setOpen(false)}
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => handleDeleteClick(cat.id)}
+            >
+              Delete
+            </button>
+          </DialogActions>
+        </Dialog>
       ) : null}
     </div>
   );
